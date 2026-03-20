@@ -227,8 +227,8 @@ Help contributors match existing patterns:
 
 ### Finding Work
 
+- Browse the [project roadmap filtered to good first issues](https://github.com/orgs/ReffoAI/projects/1/views/1?filterQuery=label%3A%22good+first+issue%22)
 - Check GitHub Issues on the community repos for open items
-- Look for `good first issue` labels
 - Check the GitHub Discussions for RFCs and feature requests
 - Read the changelogs to understand recent direction
 

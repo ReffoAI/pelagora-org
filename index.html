@@ -155,7 +155,7 @@
   .btn svg { width: 18px; height: 18px; }
 
   /* ── WHAT IS PELAGORA ── */
-  .what { padding: 100px 0; background: var(--sand); }
+  .what { padding: 100px 0; background: var(--marble); }
   .what-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
   }
@@ -192,7 +192,7 @@
   }
 
   /* ── JOURNEY ── */
-  .journey { padding: 100px 0; background: var(--marble); }
+  .journey { padding: 100px 0; background: var(--sand); }
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
   .steps::before {
     content: ''; position: absolute;
@@ -217,12 +217,25 @@
   .step p { font-size: 15px; color: var(--slate); line-height: 1.6; }
   .step code {
     font-family: 'JetBrains Mono', monospace; font-size: 12px;
-    background: var(--sand); padding: 2px 8px; border-radius: 4px;
+    background: var(--marble); padding: 2px 8px; border-radius: 4px;
     color: var(--teal);
+  }
+  .journey-cta {
+    text-align: center; margin-top: 48px;
+  }
+  .journey-cta a {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 15px; font-weight: 600; color: var(--terracotta);
+    text-decoration: none; transition: gap 0.2s;
+  }
+  .journey-cta a:hover { gap: 12px; }
+  .journey-cta a svg {
+    width: 18px; height: 18px; stroke: currentColor;
+    fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
   }
 
   /* ── USE CASES ── */
-  .usecases { padding: 100px 0; background: var(--sand); }
+  .usecases { padding: 100px 0; background: var(--marble); }
   .usecases-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
     align-items: start;
@@ -245,6 +258,19 @@
   .usecase-card:nth-child(3) .usecase-icon { background: rgba(212,96,42,0.08); }
   .usecase-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
   .usecase-card p { font-size: 14px; color: var(--slate); line-height: 1.5; }
+  .usecases-cta {
+    margin-top: 32px;
+  }
+  .usecases-cta a {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 15px; font-weight: 600; color: var(--terracotta);
+    text-decoration: none; transition: gap 0.2s;
+  }
+  .usecases-cta a:hover { gap: 12px; }
+  .usecases-cta a svg {
+    width: 18px; height: 18px; stroke: currentColor;
+    fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
 
   /* ── TERMINAL ── */
   .terminal {
@@ -390,11 +416,10 @@
       <span>PELAGORA</span>
     </a>
     <div class="nav-links">
-      <a href="#what">How It Works</a>
-      <a href="#journey">Get Started</a>
-      <a href="#build">Use Cases</a>
+      <a href="#what">About</a>
+      <a href="dev-resources/index.html">Get Started</a>
       <a href="https://docs.pelagora.org" target="_blank">Docs</a>
-      <a href="dev-resources/pelagora.md" class="nav-cta">Get the Skill</a>
+      <a href="dev-resources/index.html" class="nav-cta">Start Building</a>
     </div>
   </div>
 </nav>
@@ -409,9 +434,9 @@
     <h1>What if commerce worked like <em>the internet itself?</em></h1>
     <p class="hero-sub">Pelagora is a decentralized network where every node is a marketplace. Grab the Skill, hand it to your AI, and start building.</p>
     <div class="hero-actions">
-      <a href="dev-resources/pelagora.md" class="btn btn-primary">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Get the Skill
+      <a href="dev-resources/index.html" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        Start Building
       </a>
       <a href="https://docs.pelagora.org" target="_blank" class="btn btn-secondary">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
@@ -421,39 +446,39 @@
   </div>
 </section>
 
-<!-- WHAT IS PELAGORA -->
+<!-- WHAT IS PELAGORA (white) -->
 <section class="what" id="what">
   <div class="container">
     <div class="section-label">What is Pelagora?</div>
     <div class="section-title">A mesh network for commerce</div>
     <div class="section-desc">Not an app. Not a platform. A protocol layer that lets you build any commerce experience on a decentralized network of Beacons.</div>
     <div class="what-grid">
-      <div class="what-card">
+      <a href="https://docs.pelagora.org/pelagora/" target="_blank" class="what-card" style="text-decoration:none;color:inherit;">
         <div class="what-card-icon ocean">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
         </div>
         <h3>Beacons</h3>
         <p>Each node on the network is a Beacon &mdash; a lightweight server you run on your machine. Your data stays yours. You choose what to share.</p>
-      </div>
-      <div class="what-card">
+      </a>
+      <a href="https://docs.pelagora.org/pelagora/dht-networking" target="_blank" class="what-card" style="text-decoration:none;color:inherit;">
         <div class="what-card-icon teal">
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
         </div>
         <h3>Peer Discovery</h3>
         <p>Beacons find each other via <code>DHT</code> &mdash; no central registry. Connect to the mesh and browse what others have listed using <code>Schema.org</code> data.</p>
-      </div>
-      <div class="what-card">
+      </a>
+      <a href="dev-resources/index.html" class="what-card" style="text-decoration:none;color:inherit;">
         <div class="what-card-icon terra">
           <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
         <h3>Skills</h3>
         <p>Extend your Beacon with modular Skills &mdash; reverse auctions, rental managers, group buys. Build your own or install from the community.</p>
-      </div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- JOURNEY -->
+<!-- JOURNEY (sand) -->
 <section class="journey" id="journey">
   <div class="container">
     <div class="section-label">Get Started</div>
@@ -463,50 +488,64 @@
       <div class="step">
         <div class="step-num">1</div>
         <h3>Grab the Skill</h3>
-        <p>Download <code>SKILL.md</code> and give it to your AI agent &mdash; Claude, Cursor, Copilot, whatever you use. It contains everything your agent needs to get you set up.</p>
+        <p>Download <a href="dev-resources/pelagora.md" download style="color:var(--teal);text-decoration:none;font-weight:600;"><code>pelagora.md</code></a> and give it to your AI agent. It contains everything your agent needs to get you set up.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <h3>Spin Up a Beacon</h3>
-        <p>Your AI runs the CLI installer, creates your Beacon, and connects you to the Pelagora mesh. It also sets up the MCP server so your agent can browse and create listings.</p>
+        <p>Your AI runs the installer, creates your Beacon, and connects you to the Pelagora mesh automatically.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h3>Build Your App</h3>
-        <p>Your Beacon is live. Now build on it &mdash; a surfboard rental shop, a local marketplace, a reverse auction platform. The network handles discovery. You handle the experience.</p>
+        <h3>Start Trading</h3>
+        <p>List items, browse the network, negotiate with peers. Your Beacon is live and discoverable.</p>
       </div>
+    </div>
+    <div class="journey-cta">
+      <a href="dev-resources/run-a-node.html">
+        See the full walkthrough
+        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- USE CASES + TERMINAL -->
+<!-- USE CASES + TERMINAL (white) -->
 <section class="usecases" id="build">
   <div class="container">
     <div class="section-label">What Can You Build?</div>
     <div class="section-title">Your commerce, your rules</div>
     <div class="section-desc">Pelagora is the network. What you build on it is up to you.</div>
     <div class="usecases-grid">
-      <div class="usecase-cards">
-        <div class="usecase-card">
-          <div class="usecase-icon">&#9878;</div>
-          <div>
-            <h4>Peer-to-Peer Marketplace</h4>
-            <p>List items, negotiate offers, trade directly. No middleman fees, no platform lock-in. Your listings live on your Beacon.</p>
+      <div>
+        <div class="usecase-cards">
+          <div class="usecase-card">
+            <div class="usecase-icon">&#9878;</div>
+            <div>
+              <h4>Peer-to-Peer Marketplace</h4>
+              <p>List items, negotiate offers, trade directly. No middleman fees, no platform lock-in. Your listings live on your Beacon.</p>
+            </div>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-icon">&#9973;</div>
+            <div>
+              <h4>Rental Network</h4>
+              <p>Rent out surfboards, cameras, tools &mdash; anything. Availability, pricing, and booking all managed from your Beacon.</p>
+            </div>
+          </div>
+          <div class="usecase-card">
+            <div class="usecase-icon">&#10035;</div>
+            <div>
+              <h4>Group Buy Coordinator</h4>
+              <p>Aggregate demand across the mesh. Buyers pool together, hit a threshold, unlock bulk pricing. The Skill handles the logic.</p>
+            </div>
           </div>
         </div>
-        <div class="usecase-card">
-          <div class="usecase-icon">&#9973;</div>
-          <div>
-            <h4>Rental Network</h4>
-            <p>Rent out surfboards, cameras, tools &mdash; anything. Availability, pricing, and booking all managed from your Beacon.</p>
-          </div>
-        </div>
-        <div class="usecase-card">
-          <div class="usecase-icon">&#10035;</div>
-          <div>
-            <h4>Group Buy Coordinator</h4>
-            <p>Aggregate demand across the mesh. Buyers pool together, hit a threshold, unlock bulk pricing. The Skill handles the logic.</p>
-          </div>
+        <div class="usecases-cta">
+          <a href="dev-resources/build-something.html">
+            Explore what you can build
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
       </div>
       <div class="terminal">
@@ -539,9 +578,9 @@
     <h2>Ready to build on<br><em>the open sea?</em></h2>
     <p>Grab the Skill, hand it to your AI, and have a Beacon running in minutes.</p>
     <div class="cta-actions">
-      <a href="dev-resources/pelagora.md" class="btn btn-primary">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Get the Skill
+      <a href="dev-resources/index.html" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        Start Building
       </a>
       <a href="https://docs.pelagora.org" target="_blank" class="btn btn-secondary">Read the Docs</a>
     </div>
@@ -557,6 +596,10 @@
       <a href="https://github.com/ReffoAI/.github/blob/main/CONTRIBUTING.md" target="_blank">
         <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
         Contribute
+      </a>
+      <a href="https://github.com/orgs/ReffoAI/discussions" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Community
       </a>
       <a href="brand.html">
         <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>

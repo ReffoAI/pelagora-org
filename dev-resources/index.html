@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get the Skill — Pelagora Developer Resources</title>
+<meta name="description" content="Download the Pelagora developer skill. Hand it to your AI agent and start building on the open commerce network.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fira+Sans:wght@700&family=JetBrains+Mono:wght@400;500&family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-ocean: #0A5E8A;
+    --teal: #1A8A7D;
+    --terracotta: #D4602A;
+    --ink: #1A1A2E;
+    --slate: #4A5568;
+    --sand: #F5F0EB;
+    --marble: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px; line-height: 1.6;
+    color: var(--ink); background: var(--marble);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(26,26,46,0.95); backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--terracotta);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .nav-brand img { height: 30px; width: auto; }
+  .nav-brand span {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600; font-size: 15px; color: var(--marble);
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.55); text-decoration: none;
+    font-size: 14px; font-weight: 500; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--marble); }
+  .nav-cta {
+    background: var(--terracotta); color: var(--marble) !important;
+    padding: 8px 20px; border-radius: 6px; font-weight: 600;
+    font-size: 13px !important; letter-spacing: 0.02em;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #c0551f; }
+
+  /* ── UTILITIES ── */
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+  .section-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 38px; font-weight: 700; line-height: 1.15;
+    color: var(--ink); margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 17px; line-height: 1.65; color: var(--slate);
+    max-width: 620px; margin-bottom: 48px;
+  }
+
+  /* ── HERO (compact, skill-focused) ── */
+  .hero {
+    background: var(--ink);
+    padding: 140px 0 100px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -100px;
+    width: 800px; height: 800px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(10,94,138,0.2) 0%, transparent 65%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -200px; left: -150px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,96,42,0.1) 0%, transparent 65%);
+  }
+  .hero .container { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    display: inline-block; padding: 5px 16px; border-radius: 20px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+    color: var(--teal); border: 1px solid rgba(26,138,125,0.35);
+    margin-bottom: 28px; text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: clamp(40px, 5.5vw, 58px); font-weight: 700;
+    line-height: 1.08; color: var(--marble);
+    margin-bottom: 24px; max-width: 650px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--teal), var(--deep-ocean));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.5);
+    max-width: 520px; margin-bottom: 40px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px; border-radius: 8px; font-size: 15px;
+    font-weight: 600; text-decoration: none; transition: all 0.2s;
+    cursor: pointer; border: none;
+  }
+  .btn-primary {
+    background: var(--terracotta); color: var(--marble);
+  }
+  .btn-primary:hover { background: #c0551f; transform: translateY(-1px); }
+  .btn-secondary {
+    background: rgba(255,255,255,0.08); color: var(--marble);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+  .btn-secondary-light {
+    background: transparent; color: var(--ink);
+    border: 1px solid rgba(0,0,0,0.15);
+  }
+  .btn-secondary-light:hover { background: rgba(0,0,0,0.04); }
+  .btn svg { width: 18px; height: 18px; }
+
+  /* ── SKILL BAND (sand) ── */
+  .skill-band {
+    padding: 100px 0; background: var(--sand);
+  }
+  .skill-band-header {
+    max-width: 620px; margin-bottom: 48px;
+  }
+  .skill-band-header .section-desc { margin-bottom: 24px; }
+
+  /* ── TERMINAL ── */
+  .terminal {
+    background: #0d0d1a; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    max-width: 720px; margin: 0 auto 40px;
+  }
+  .terminal-bar {
+    background: #1a1a30; padding: 12px 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+  .terminal-dot.red { background: #ff5f57; }
+  .terminal-dot.yellow { background: #ffbd2e; }
+  .terminal-dot.green { background: #28c840; }
+  .terminal-title {
+    flex: 1; text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: rgba(255,255,255,0.3);
+  }
+  .terminal-body {
+    padding: 28px 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px; line-height: 2;
+  }
+  .terminal-line .prompt { color: var(--teal); }
+  .terminal-line .cmd { color: rgba(255,255,255,0.85); }
+  .terminal-line .comment { color: rgba(255,255,255,0.25); }
+  .terminal-line .output { color: rgba(255,255,255,0.5); }
+  .terminal-line .success { color: #28c840; }
+  .terminal-line .highlight { color: var(--terracotta); }
+  .terminal-cursor {
+    display: inline-block; width: 8px; height: 16px;
+    background: var(--teal); margin-left: 2px;
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .download-actions {
+    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  }
+
+  /* ── PERSONAS (white) ── */
+  .personas { padding: 100px 0; background: var(--marble); }
+  .personas-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+    text-align: center;
+  }
+  .personas-title {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 38px; font-weight: 700; line-height: 1.15;
+    color: var(--ink); margin-bottom: 40px;
+    text-align: center;
+  }
+  .personas-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .persona-card {
+    background: var(--marble);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 14px; padding: 32px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none; color: inherit;
+    display: block;
+  }
+  .persona-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .persona-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px; font-size: 22px;
+  }
+  .persona-icon.ocean { background: rgba(10,94,138,0.1); }
+  .persona-icon.teal { background: rgba(26,138,125,0.1); }
+  .persona-icon.terra { background: rgba(212,96,42,0.08); }
+  .persona-card h3 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 20px; font-weight: 700; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .persona-card .persona-quote {
+    font-size: 14px; color: var(--teal); font-style: italic;
+    margin-bottom: 12px;
+  }
+  .persona-card p {
+    font-size: 15px; color: var(--slate); line-height: 1.6;
+  }
+  .persona-card .persona-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 16px; font-size: 14px; font-weight: 600;
+    color: var(--terracotta);
+  }
+  .persona-card .persona-link svg {
+    width: 16px; height: 16px; stroke: currentColor;
+    fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    padding: 100px 0; background: var(--ink);
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .cta::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 800px; height: 800px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(10,94,138,0.15) 0%, transparent 60%);
+  }
+  .cta .container { position: relative; z-index: 1; }
+  .cta h2 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: clamp(32px, 4vw, 48px); font-weight: 700;
+    color: var(--marble); margin-bottom: 16px; line-height: 1.1;
+  }
+  .cta h2 em { font-style: normal; color: var(--teal); }
+  .cta p {
+    font-size: 18px; color: rgba(255,255,255,0.45);
+    max-width: 500px; margin: 0 auto 40px; line-height: 1.6;
+  }
+  .cta-actions {
+    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .cta-links {
+    display: flex; justify-content: center; gap: 32px;
+  }
+  .cta-links a {
+    color: rgba(255,255,255,0.4); text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    display: flex; align-items: center; gap: 6px;
+    transition: color 0.2s;
+  }
+  .cta-links a:hover { color: var(--marble); }
+  .cta-links a svg {
+    width: 16px; height: 16px; stroke: currentColor;
+    fill: none; stroke-width: 2;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 32px 0; text-align: center;
+  }
+  .footer-brand {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    margin-bottom: 8px;
+  }
+  .footer-brand img { height: 24px; width: auto; }
+  .footer-brand span {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600; font-size: 13px; color: rgba(255,255,255,0.4);
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  footer p { font-size: 13px; color: rgba(255,255,255,0.2); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-inner { padding: 0 20px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { padding: 120px 0 80px; }
+    .hero h1 { max-width: 100%; }
+    .container { padding: 0 24px; }
+    .personas-grid { grid-template-columns: 1fr; gap: 20px; }
+    .terminal-body { padding: 20px; font-size: 13px; }
+    .cta-links { flex-direction: column; align-items: center; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <img src="../images/pelagora-logo_reverse_sm.png" alt="Pelagora">
+      <span>PELAGORA</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#what">About</a>
+      <a href="index.html">Get Started</a>
+      <a href="https://docs.pelagora.org" target="_blank">Docs</a>
+      <a href="pelagora.md" download class="nav-cta">Download AI Skill</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO (dark blue — skill-focused, not a repeat of the homepage) -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Developer Resources</div>
+    <h1>One file. <em>Three paths.</em></h1>
+    <p class="hero-sub">The Pelagora Skill gives your AI agent everything it needs to get you connected, building, or contributing. Download it, drop it in your project, and go.</p>
+    <div class="hero-actions">
+      <a href="pelagora.md" download class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download AI Skill
+      </a>
+      <a href="https://docs.pelagora.org" target="_blank" class="btn btn-secondary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        Read the Docs
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILL PREVIEW (sand) -->
+<section class="skill-band" id="skill">
+  <div class="container">
+    <div class="skill-band-header">
+      <div>
+        <div class="section-label">Developer Skill</div>
+        <div class="section-title">Already using AI?</div>
+        <div class="section-desc">The Pelagora Skill gives your AI agent everything it needs to connect you to the network, spin up a Beacon, and start building commerce apps. Drop <code style="font-family:'JetBrains Mono',monospace;font-size:14px;background:rgba(26,138,125,0.08);color:var(--teal);padding:2px 6px;border-radius:4px;">pelagora.md</code> into your project. Your AI agent picks it up and knows how to get you connected, building, or contributing.</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="pelagora.md" download class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download AI Skill
+          </a>
+          <a href="https://docs.pelagora.org" target="_blank" class="btn btn-secondary-light">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            Read the Docs
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="terminal-dot red"></div>
+        <div class="terminal-dot yellow"></div>
+        <div class="terminal-dot green"></div>
+        <div class="terminal-title">pelagora.md</div>
+      </div>
+      <div class="terminal-body">
+        <div class="terminal-line"><span class="comment"># Drop pelagora.md into your project</span></div>
+        <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">cp pelagora.md .claude/skills/</span></div>
+        <div class="terminal-line">&nbsp;</div>
+        <div class="terminal-line"><span class="comment"># Ask your AI agent</span></div>
+        <div class="terminal-line"><span class="prompt">&gt; </span><span class="cmd">"I want to join the Pelagora network"</span></div>
+        <div class="terminal-line">&nbsp;</div>
+        <div class="terminal-line"><span class="success">&#10003;</span><span class="output"> Beacon scaffolded at ./my-beacon</span></div>
+        <div class="terminal-line"><span class="success">&#10003;</span><span class="output"> Connected to Pelagora mesh &mdash; <span class="highlight">12 peers</span></span></div>
+        <div class="terminal-line"><span class="success">&#10003;</span><span class="output"> MCP server ready</span></div>
+        <div class="terminal-line"><span class="success">&#10003;</span><span class="output"> Web UI at <span class="highlight">http://localhost:3000</span></span><span class="terminal-cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAS (white) -->
+<section class="personas" id="personas">
+  <div class="container">
+    <div class="personas-label">What's Inside the Skill</div>
+    <div class="personas-title">One skill. Three paths.</div>
+    <div class="personas-grid">
+      <a href="run-a-node.html" class="persona-card">
+        <div class="persona-icon ocean">&#9878;</div>
+        <h3>Run a Node</h3>
+        <div class="persona-quote">"I want to join the network"</div>
+        <p>Scaffold a Beacon, connect to the mesh, browse listings, buy and sell directly. Your AI handles the setup.</p>
+        <div class="persona-link">
+          Get started
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <a href="build-something.html" class="persona-card">
+        <div class="persona-icon teal">&#9881;</div>
+        <h3>Build Something</h3>
+        <div class="persona-quote">"I want to build on top of this"</div>
+        <p>Create Skills, extensions, and integrations. Build a rental platform, a local marketplace, or something new entirely.</p>
+        <div class="persona-link">
+          Start building
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <a href="https://github.com/ReffoAI/.github/blob/main/CONTRIBUTING.md" target="_blank" class="persona-card">
+        <div class="persona-icon terra">&#10035;</div>
+        <h3>Contribute</h3>
+        <div class="persona-quote">"I want to make this better"</div>
+        <p>Submit PRs, fix bugs, improve docs. The skill walks you through repo conventions, tech patterns, and finding work.</p>
+        <div class="persona-link">
+          Contributing guide
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA (dark blue) -->
+<section class="cta">
+  <div class="container">
+    <h2>Ready to build on<br><em>the open sea?</em></h2>
+    <p>Grab the Skill, hand it to your AI, and have a Beacon running in minutes.</p>
+    <div class="cta-actions">
+      <a href="pelagora.md" download class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download AI Skill
+      </a>
+      <a href="https://docs.pelagora.org" target="_blank" class="btn btn-secondary">Read the Docs</a>
+    </div>
+    <div class="cta-links">
+      <a href="https://github.com/ReffoAI" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a href="https://docs.pelagora.org" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        Documentation
+      </a>
+      <a href="https://github.com/ReffoAI/.github/blob/main/CONTRIBUTING.md" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Contribute
+      </a>
+      <a href="https://github.com/orgs/ReffoAI/discussions" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Community
+      </a>
+      <a href="../brand.html">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Branding
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-brand">
+      <img src="../images/pelagora-logo_reverse_sm.png" alt="Pelagora">
+      <span>Pelagora</span>
+    </div>
+    <p>Open source commerce for builders. &copy; 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Run a Node — Pelagora</title>
+<meta name="description" content="Three steps to listing your first item for sale on the Pelagora network. Scaffold a Beacon, connect to the mesh, and start trading.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fira+Sans:wght@700&family=JetBrains+Mono:wght@400;500&family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --deep-ocean: #0A5E8A;
+    --teal: #1A8A7D;
+    --terracotta: #D4602A;
+    --ink: #1A1A2E;
+    --slate: #4A5568;
+    --sand: #F5F0EB;
+    --marble: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px; line-height: 1.6;
+    color: var(--ink); background: var(--marble);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(26,26,46,0.95); backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--terracotta);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .nav-brand img { height: 30px; width: auto; }
+  .nav-brand span {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600; font-size: 15px; color: var(--marble);
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.55); text-decoration: none;
+    font-size: 14px; font-weight: 500; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--marble); }
+  .nav-cta {
+    background: var(--terracotta); color: var(--marble) !important;
+    padding: 8px 20px; border-radius: 6px; font-weight: 600;
+    font-size: 13px !important; letter-spacing: 0.02em;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #c0551f; }
+
+  /* ── UTILITIES ── */
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+  .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 40px; }
+  .section-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 38px; font-weight: 700; line-height: 1.15;
+    color: var(--ink); margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 17px; line-height: 1.65; color: var(--slate);
+    max-width: 620px; margin-bottom: 48px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px; border-radius: 8px; font-size: 15px;
+    font-weight: 600; text-decoration: none; transition: all 0.2s;
+    cursor: pointer; border: none;
+  }
+  .btn-primary { background: var(--terracotta); color: var(--marble); }
+  .btn-primary:hover { background: #c0551f; transform: translateY(-1px); }
+  .btn-secondary {
+    background: rgba(255,255,255,0.08); color: var(--marble);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+  .btn-secondary-light {
+    background: transparent; color: var(--ink);
+    border: 1px solid rgba(0,0,0,0.15);
+  }
+  .btn-secondary-light:hover { background: rgba(0,0,0,0.04); }
+  .btn svg { width: 18px; height: 18px; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ink);
+    padding: 160px 0 100px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -100px;
+    width: 800px; height: 800px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(10,94,138,0.2) 0%, transparent 65%);
+  }
+  .hero .container { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    display: inline-block; padding: 5px 16px; border-radius: 20px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+    color: var(--teal); border: 1px solid rgba(26,138,125,0.35);
+    margin-bottom: 28px; text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: clamp(36px, 5vw, 52px); font-weight: 700;
+    line-height: 1.1; color: var(--marble);
+    margin-bottom: 24px; max-width: 700px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--teal), var(--deep-ocean));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.5);
+    max-width: 560px; margin-bottom: 40px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: rgba(255,255,255,0.4); text-decoration: none;
+    font-size: 14px; margin-bottom: 24px; transition: color 0.2s;
+  }
+  .hero-back:hover { color: var(--marble); }
+  .hero-back svg {
+    width: 16px; height: 16px; stroke: currentColor;
+    fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* ── STEPS (sand) ── */
+  .steps-band { padding: 100px 0; background: var(--sand); }
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    position: relative;
+  }
+  .steps-grid::before {
+    content: ''; position: absolute;
+    top: 36px; left: 15%; right: 15%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), var(--deep-ocean), var(--terracotta));
+    opacity: 0.25;
+  }
+  .step { text-align: center; padding: 0 24px; position: relative; }
+  .step-num {
+    width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 24px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fira Sans', sans-serif; font-size: 28px; font-weight: 700;
+    position: relative; z-index: 1;
+  }
+  .step:nth-child(1) .step-num { background: rgba(10,94,138,0.1); color: var(--deep-ocean); }
+  .step:nth-child(2) .step-num { background: rgba(26,138,125,0.1); color: var(--teal); }
+  .step:nth-child(3) .step-num { background: rgba(212,96,42,0.08); color: var(--terracotta); }
+  .step h3 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 20px; font-weight: 700; margin-bottom: 10px;
+  }
+  .step p { font-size: 15px; color: var(--slate); line-height: 1.6; }
+  .step code {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    background: rgba(26,138,125,0.08); padding: 2px 8px; border-radius: 4px;
+    color: var(--teal);
+  }
+
+  /* ── DETAIL SECTIONS ── */
+  .detail { padding: 80px 0; }
+  .detail.white { background: var(--marble); }
+  .detail.sand { background: var(--sand); }
+  .detail-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 24px;
+  }
+  .detail-num {
+    width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fira Sans', sans-serif; font-size: 20px; font-weight: 700;
+  }
+  .detail-num.ocean { background: rgba(10,94,138,0.1); color: var(--deep-ocean); }
+  .detail-num.teal { background: rgba(26,138,125,0.1); color: var(--teal); }
+  .detail-num.terra { background: rgba(212,96,42,0.08); color: var(--terracotta); }
+  .detail h2 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 28px; font-weight: 700;
+  }
+  .detail-body { max-width: 720px; }
+  .detail-body p {
+    font-size: 16px; line-height: 1.7; color: var(--slate);
+    margin-bottom: 20px;
+  }
+  .detail-body ul {
+    margin-bottom: 20px; padding-left: 20px;
+  }
+  .detail-body li {
+    font-size: 16px; line-height: 1.7; color: var(--slate);
+    margin-bottom: 8px;
+  }
+  .detail-body li strong { color: var(--ink); }
+
+  /* ── TERMINAL ── */
+  .terminal {
+    background: #0d0d1a; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    margin: 32px 0;
+  }
+  .terminal-bar {
+    background: #1a1a30; padding: 12px 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+  .terminal-dot.red { background: #ff5f57; }
+  .terminal-dot.yellow { background: #ffbd2e; }
+  .terminal-dot.green { background: #28c840; }
+  .terminal-title {
+    flex: 1; text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: rgba(255,255,255,0.3);
+  }
+  .terminal-body {
+    padding: 24px 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px; line-height: 2;
+  }
+  .terminal-line .prompt { color: var(--teal); }
+  .terminal-line .cmd { color: rgba(255,255,255,0.85); }
+  .terminal-line .comment { color: rgba(255,255,255,0.25); }
+  .terminal-line .output { color: rgba(255,255,255,0.5); }
+  .terminal-line .success { color: #28c840; }
+  .terminal-line .highlight { color: var(--terracotta); }
+  .terminal-cursor {
+    display: inline-block; width: 8px; height: 16px;
+    background: var(--teal); margin-left: 2px;
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ── CALLOUT ── */
+  .callout {
+    background: rgba(26,138,125,0.06);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .callout p {
+    font-size: 15px !important; color: var(--ink) !important;
+    margin-bottom: 0 !important;
+  }
+  .callout strong { color: var(--teal); }
+
+  /* ── WHAT'S NEXT (sand) ── */
+  .whats-next { padding: 100px 0; background: var(--sand); }
+  .whats-next-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .next-card {
+    background: var(--marble); border-radius: 14px; padding: 28px;
+    border: 1px solid rgba(0,0,0,0.05);
+    text-decoration: none; color: inherit;
+    display: block; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .next-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .next-card h3 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 18px; font-weight: 700; margin-bottom: 8px;
+  }
+  .next-card p { font-size: 15px; color: var(--slate); line-height: 1.6; }
+  .next-card .card-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 12px; font-size: 14px; font-weight: 600;
+    color: var(--terracotta);
+  }
+  .next-card .card-link svg {
+    width: 16px; height: 16px; stroke: currentColor;
+    fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    padding: 100px 0; background: var(--ink);
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .cta::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 800px; height: 800px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(10,94,138,0.15) 0%, transparent 60%);
+  }
+  .cta .container { position: relative; z-index: 1; }
+  .cta h2 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: clamp(32px, 4vw, 48px); font-weight: 700;
+    color: var(--marble); margin-bottom: 16px; line-height: 1.1;
+  }
+  .cta h2 em { font-style: normal; color: var(--teal); }
+  .cta p {
+    font-size: 18px; color: rgba(255,255,255,0.45);
+    max-width: 500px; margin: 0 auto 40px; line-height: 1.6;
+  }
+  .cta-actions {
+    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .cta-links { display: flex; justify-content: center; gap: 32px; }
+  .cta-links a {
+    color: rgba(255,255,255,0.4); text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    display: flex; align-items: center; gap: 6px; transition: color 0.2s;
+  }
+  .cta-links a:hover { color: var(--marble); }
+  .cta-links a svg {
+    width: 16px; height: 16px; stroke: currentColor;
+    fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 32px 0; text-align: center;
+  }
+  .footer-brand {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    margin-bottom: 8px;
+  }
+  .footer-brand img { height: 24px; width: auto; }
+  .footer-brand span {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600; font-size: 13px; color: rgba(255,255,255,0.4);
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  footer p { font-size: 13px; color: rgba(255,255,255,0.2); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-inner { padding: 0 20px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { padding: 120px 0 80px; }
+    .hero h1 { max-width: 100%; }
+    .container, .container-narrow { padding: 0 24px; }
+    .steps-grid, .whats-next-grid { grid-template-columns: 1fr; gap: 20px; }
+    .steps-grid::before { display: none; }
+    .terminal-body { padding: 20px; font-size: 13px; }
+    .cta-links { flex-direction: column; align-items: center; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <img src="../images/pelagora-logo_reverse_sm.png" alt="Pelagora">
+      <span>PELAGORA</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#what">About</a>
+      <a href="index.html">Get Started</a>
+      <a href="https://docs.pelagora.org" target="_blank">Docs</a>
+      <a href="pelagora.md" download class="nav-cta">Download AI Skill</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO (dark blue) -->
+<section class="hero">
+  <div class="container">
+    <a href="index.html" class="hero-back">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Back to Get the Skill
+    </a>
+    <div class="hero-eyebrow">Run a Node</div>
+    <h1>Three steps to listing your first item <em>for sale on Pelagora</em></h1>
+    <p class="hero-sub">You don't need the Reffo UI. Grab the skill, hand it to your AI, and your agent will have you connected and selling in minutes.</p>
+    <div class="hero-actions">
+      <a href="pelagora.md" download class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download AI Skill
+      </a>
+      <a href="https://docs.pelagora.org/getting-started/quick-start" target="_blank" class="btn btn-secondary">Quick Start Guide</a>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS OVERVIEW (sand) -->
+<section class="steps-band">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">The Path</div>
+    <div class="section-title">From zero to your first listing</div>
+    <div class="section-desc" style="text-align:center;margin-left:auto;margin-right:auto;">Each step takes a few minutes. Your AI agent does the heavy lifting.</div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Scaffold Your Beacon</h3>
+        <p>Run the CLI installer. It creates a project directory, installs dependencies, and generates your config.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Connect to the Mesh</h3>
+        <p>Start your Beacon. It joins the Pelagora network via DHT and starts discovering other nodes automatically.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>List Your First Item</h3>
+        <p>Create an inventory item, set a price, and publish it to the mesh. Other Beacons can find and negotiate with you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 1: SCAFFOLD (white) -->
+<section class="detail white">
+  <div class="container-narrow">
+    <div class="detail-header">
+      <div class="detail-num ocean">1</div>
+      <h2>Scaffold Your Beacon</h2>
+    </div>
+    <div class="detail-body">
+      <p>A Beacon is your node on the Pelagora network &mdash; a lightweight server that stores your inventory, manages negotiations, and connects you to other nodes. The CLI installer scaffolds everything you need.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot red"></div>
+          <div class="terminal-dot yellow"></div>
+          <div class="terminal-dot green"></div>
+          <div class="terminal-title">terminal</div>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="comment"># Scaffold a new Beacon project</span></div>
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">npx pelagora-cli-installer</span></div>
+          <div class="terminal-line">&nbsp;</div>
+          <div class="terminal-line"><span class="output">? Project directory: </span><span class="highlight">./my-beacon</span></div>
+          <div class="terminal-line"><span class="output">? HTTP port: </span><span class="highlight">3000</span></div>
+          <div class="terminal-line"><span class="output">? Package manager: </span><span class="highlight">npm</span></div>
+          <div class="terminal-line">&nbsp;</div>
+          <div class="terminal-line"><span class="success">&#10003;</span><span class="output"> Project created at ~/my-beacon</span></div>
+          <div class="terminal-line"><span class="success">&#10003;</span><span class="output"> Dependencies installed</span></div>
+          <div class="terminal-line"><span class="success">&#10003;</span><span class="output"> .env configured</span></div>
+        </div>
+      </div>
+
+      <p>The installer creates a complete project with:</p>
+      <ul>
+        <li><strong>package.json</strong> with <code style="font-family:'JetBrains Mono',monospace;font-size:13px;background:rgba(26,138,125,0.08);color:var(--teal);padding:2px 6px;border-radius:4px;">pelagora</code> as a dependency</li>
+        <li><strong>.env</strong> with your port and optional Reffo API key (<a href="https://docs.pelagora.org/pelagora/configuration" target="_blank" style="color:var(--teal);font-weight:600;">see all config options</a>)</li>
+        <li><strong>uploads/</strong> directory for item photos and media</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Using the Pelagora Skill?</strong> Just tell your AI agent "I want to run a node on Pelagora" and it will run the installer for you, choosing sensible defaults.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 2: CONNECT (sand) -->
+<section class="detail sand">
+  <div class="container-narrow">
+    <div class="detail-header">
+      <div class="detail-num teal">2</div>
+      <h2>Connect to the Mesh</h2>
+    </div>
+    <div class="detail-body">
+      <p>Start your Beacon and it automatically connects to the Pelagora network via the Distributed Hash Table (DHT). No central server, no registration &mdash; just peers finding peers.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot red"></div>
+          <div class="terminal-dot yellow"></div>
+          <div class="terminal-dot green"></div>
+          <div class="terminal-title">terminal</div>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">cd my-beacon && npm start</span></div>
+          <div class="terminal-line">&nbsp;</div>
+          <div class="terminal-line"><span class="success">&#10003;</span><span class="output"> Beacon started on port <span class="highlight">3000</span></span></div>
+          <div class="terminal-line"><span class="success">&#10003;</span><span class="output"> DHT connected &mdash; <span class="highlight">12 peers</span> discovered</span></div>
+          <div class="terminal-line"><span class="success">&#10003;</span><span class="output"> Web UI available at <span class="highlight">http://localhost:3000</span></span></div>
+        </div>
+      </div>
+
+      <p>Once connected, you can:</p>
+      <ul>
+        <li><strong>Browse the network</strong> through the built-in <a href="https://docs.pelagora.org/pelagora/web-ui" target="_blank" style="color:var(--teal);font-weight:600;">Web UI</a> at <code style="font-family:'JetBrains Mono',monospace;font-size:13px;background:rgba(26,138,125,0.08);color:var(--teal);padding:2px 6px;border-radius:4px;">localhost:3000</code></li>
+        <li><strong>Search for items</strong> listed by other Beacons on the mesh</li>
+        <li><strong>Set your profile</strong> &mdash; give your Beacon a name, location, and description so others can find you</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Want AI access?</strong> Install the MCP server with <code style="font-family:'JetBrains Mono',monospace;font-size:13px;background:rgba(26,138,125,0.08);color:var(--teal);padding:2px 4px;border-radius:4px;">npm install -g @pelagora/mcp</code> and your AI agent can browse the network, manage inventory, and negotiate on your behalf. See the <a href="https://docs.pelagora.org/mcp-server/" target="_blank" style="color:var(--teal);font-weight:600;">MCP server docs</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 3: LIST (white) -->
+<section class="detail white">
+  <div class="container-narrow">
+    <div class="detail-header">
+      <div class="detail-num terra">3</div>
+      <h2>List Your First Item</h2>
+    </div>
+    <div class="detail-body">
+      <p>Your Beacon is live. Now give it something to sell. Create an inventory item, attach a price, and it's immediately discoverable by every other node on the mesh.</p>
+
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dot red"></div>
+          <div class="terminal-dot yellow"></div>
+          <div class="terminal-dot green"></div>
+          <div class="terminal-title">terminal</div>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="comment"># Create an item via the REST API</span></div>
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">curl -X POST localhost:3000/api/items \</span></div>
+          <div class="terminal-line"><span class="cmd">  -H "Content-Type: application/json" \</span></div>
+          <div class="terminal-line"><span class="cmd">  -d '{"name": "<span class="highlight">Channel Islands Surfboard</span>",</span></div>
+          <div class="terminal-line"><span class="cmd">       "description": "6ft shortboard, great condition",</span></div>
+          <div class="terminal-line"><span class="cmd">       "category": "sporting-goods"}'</span></div>
+          <div class="terminal-line">&nbsp;</div>
+          <div class="terminal-line"><span class="comment"># Add a price offer</span></div>
+          <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">curl -X POST localhost:3000/api/offers \</span></div>
+          <div class="terminal-line"><span class="cmd">  -d '{"refId": "<span class="highlight">item_8x7k2m</span>", "price": 450, "currency": "USD"}'</span></div>
+          <div class="terminal-line">&nbsp;</div>
+          <div class="terminal-line"><span class="success">&#10003;</span><span class="output"> Item published to mesh (<span class="highlight">12 peers</span> notified)</span><span class="terminal-cursor"></span></div>
+        </div>
+      </div>
+
+      <p>That's it. Your item is now visible to anyone searching the Pelagora network. When another Beacon's user finds your surfboard and wants to buy it, they'll send you a negotiation proposal through the DHT &mdash; no intermediary needed.</p>
+
+      <p>You can also do all of this through:</p>
+      <ul>
+        <li><strong>The Web UI</strong> at <code style="font-family:'JetBrains Mono',monospace;font-size:13px;background:rgba(26,138,125,0.08);color:var(--teal);padding:2px 6px;border-radius:4px;">localhost:3000</code> &mdash; point-and-click inventory management</li>
+        <li><strong>Your AI agent</strong> via the MCP server &mdash; "list my surfboard for $450"</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Negotiations are peer-to-peer.</strong> When a buyer sends a proposal, you can accept, reject, or counter &mdash; all happening directly between Beacons over the DHT. No platform fees, no middleman.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S NEXT (sand) -->
+<section class="whats-next">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">What's Next</div>
+    <div class="section-title">You're on the mesh. Now what?</div>
+    <div class="section-desc" style="text-align:center;margin-left:auto;margin-right:auto;">Your Beacon is running and your first item is listed. The Pelagora Skill has two more paths to explore.</div>
+    <div class="whats-next-grid">
+      <a href="https://docs.pelagora.org/mcp-server/" target="_blank" class="next-card">
+        <h3>Set Up the MCP Server</h3>
+        <p>Give your AI agent full access to your Beacon &mdash; manage inventory, search the network, and handle negotiations hands-free.</p>
+        <div class="card-link">
+          MCP docs
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <a href="build-something.html" class="next-card">
+        <h3>Build Something</h3>
+        <p>Create Skills, extensions, and integrations on top of your Beacon. Rental platforms, reverse auctions, or something entirely new.</p>
+        <div class="card-link">
+          Start building
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+      <a href="https://github.com/ReffoAI/.github/blob/main/CONTRIBUTING.md" target="_blank" class="next-card">
+        <h3>Contribute to Pelagora</h3>
+        <p>Found a bug? Have an idea? The codebase is open. Read the contributing guide and submit your first PR.</p>
+        <div class="card-link">
+          Contributing guide
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA (dark blue) -->
+<section class="cta">
+  <div class="container">
+    <h2>Ready to build on<br><em>the open sea?</em></h2>
+    <p>Grab the Skill, hand it to your AI, and have a Beacon running in minutes.</p>
+    <div class="cta-actions">
+      <a href="pelagora.md" download class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download AI Skill
+      </a>
+      <a href="https://docs.pelagora.org" target="_blank" class="btn btn-secondary">Read the Docs</a>
+    </div>
+    <div class="cta-links">
+      <a href="https://github.com/ReffoAI" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a href="https://docs.pelagora.org" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        Documentation
+      </a>
+      <a href="https://github.com/ReffoAI/.github/blob/main/CONTRIBUTING.md" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Contribute
+      </a>
+      <a href="https://github.com/orgs/ReffoAI/discussions" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Community
+      </a>
+      <a href="../brand.html">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Branding
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-brand">
+      <img src="../images/pelagora-logo_reverse_sm.png" alt="Pelagora">
+      <span>Pelagora</span>
+    </div>
+    <p>Open source commerce for builders. &copy; 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
