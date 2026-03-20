@@ -53,7 +53,7 @@ Before anything else, check if they're already connected:
    - Check if `@pelagora/mcp` is available: `npx @pelagora/mcp --help` or check node_modules
    - If not: `npm install -g @pelagora/mcp` (or see https://docs.pelagora.org/mcp-server/)
 
-2. **Is a beacon running?**
+2. **Is a Beacon running?**
    - Try hitting `http://localhost:3000/health` (or their configured port)
    - If running, report the health status (version, uptime, DHT connections, item count)
    - If not running, help them start it or scaffold a new one
@@ -73,14 +73,14 @@ If they don't have a node yet:
    ```
    This walks them through directory, port, and package manager selection. It generates a ready-to-run beacon project.
 
-2. **Start the beacon:**
+2. **Start the Beacon:**
    ```bash
    cd <project-dir>
    npm start
    ```
 
 3. **Open the Web UI:**
-   The beacon serves a web UI at `http://localhost:<port>`. Help them open it so they can browse the network visually.
+   The Beacon serves a web UI at `http://localhost:<port>`. Help them open it so they can browse the network visually.
 
 4. **Install the MCP server** (if they want AI agent access):
    ```bash
@@ -88,20 +88,20 @@ If they don't have a node yet:
    ```
    Then configure their AI tool (Claude, etc.) to connect to it. See https://docs.pelagora.org/mcp-server/ for setup.
 
-### Add a Beacon
+### Configure the Beacon
 
-If the developer wants to make their node discoverable:
+If the developer wants to make their Beacon discoverable:
 
-- A **beacon** is their node's identity on the network
-- Help them configure their beacon profile (name, location, description) via the Web UI or API
-- If they want to list items, walk them through creating inventory via MCP tools or the REST API
+- A **Beacon** is their node's identity on the network
+- Help them configure their Beacon profile (name, location, description) via the Web UI or API
+- If they want to list items (Refs), walk them through creating inventory via MCP tools or the REST API
 
-### Beacons (Optional)
+### DHT Discovery (Optional)
 
-If they want to register a custom beacon to advertise a specific service or capability:
+If they want their Beacon to be fully discoverable on the network:
 
-- Explain what beacons are (persistent, discoverable service endpoints on the DHT)
-- Walk them through the beacon registration process
+- Explain that Beacons are persistent, discoverable service endpoints on the DHT
+- Walk them through the Beacon configuration process
 - Point to https://docs.pelagora.org/pelagora/dht-networking/ for deeper DHT documentation
 
 ---
@@ -112,9 +112,9 @@ If they want to register a custom beacon to advertise a specific service or capa
 
 Help the developer understand the extension points:
 
-1. **Skills** — modular plugins that add capabilities to any beacon (database tables, API routes, DHT handlers, MCP tools). This is the primary extension mechanism.
+1. **Skills** — modular plugins that add capabilities to any Beacon (database tables, API routes, DHT handlers, MCP tools). This is the primary extension mechanism.
 2. **MCP integrations** — AI agent workflows that leverage the network
-3. **Custom clients** — apps that talk to the beacon REST API
+3. **Custom clients** — apps that talk to the Beacon REST API
 4. **Protocol extensions** — new PIM types or schemas
 
 ### Building a Skill
@@ -147,7 +147,7 @@ Skills are the most common thing builders create. Walk them through:
 
 4. **Package naming:** `@reffo/skill-<name>` for official skills, or their own npm scope for community skills.
 
-5. **Testing:** Link locally, test with two beacons on different ports, verify DHT messaging works.
+5. **Testing:** Link locally, test with two Beacons on different ports, verify DHT messaging works.
 
 ### Ideas and Inspiration
 
@@ -188,7 +188,7 @@ All community repos live under the **ReffoAI** GitHub organization:
 
 | Repo | What It Is | Language |
 |------|-----------|----------|
-| `pelagora` | The beacon node (Express + SQLite + Hyperswarm) | CommonJS JS |
+| `pelagora` | The Beacon node (Express + SQLite + Hyperswarm) | CommonJS JS |
 | `pim-protocol` | Shared types and schemas | TypeScript (dual ESM/CJS) |
 | `pelagora-mcp-server` | MCP server for AI agents | TypeScript (ESM) |
 | `pelagora-cli-installer` | CLI scaffolding tool | ESM JS |
@@ -239,5 +239,5 @@ Help contributors match existing patterns:
 - **Always check health first.** Whatever the developer wants to do, a working node is the foundation. Run the health check before diving into building or contributing.
 - **Link, don't replicate.** Point to docs.pelagora.org for detailed reference. This skill is a guide, not a replacement for documentation.
 - **Surface what's new.** Whenever it's natural, check changelogs and mention recent features. Developers love knowing what just shipped.
-- **Be encouraging.** The Pelagora community voice is warm, welcoming, and never gatekeeping. "First beacon? Nice. Here's what to try next."
+- **Be encouraging.** The Pelagora community voice is warm, welcoming, and never gatekeeping. "First Beacon? Nice. Here's what to try next."
 - **Don't overwhelm.** Start with their stated intent. Introduce other paths naturally as they get comfortable.
