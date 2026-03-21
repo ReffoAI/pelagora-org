@@ -17,25 +17,8 @@ export default function DevResourcesPage() {
           <p className="hero-sub">
             The Pelagora Skill gives your AI agent everything it needs to get
             you connected, building, or contributing. Download it, drop it in
-            your project, and go.
+            your project, and go!
           </p>
-          <div className="hero-actions">
-            <a href="/pelagora.md" download className="btn btn-primary">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              Download AI Skill
-            </a>
-            <a href="https://docs.pelagora.org" target="_blank" rel="noreferrer" className="btn btn-secondary">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
-                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
-              </svg>
-              Read the Docs
-            </a>
-          </div>
         </div>
       </section>
 
@@ -135,8 +118,8 @@ export default function DevResourcesPage() {
       {/* CTA */}
       <section className="cta">
         <div className="container">
-          <h2>Ready to build on<br /><em>the open sea?</em></h2>
-          <p>Grab the Skill, hand it to your AI, and have a Beacon running in minutes.</p>
+          <h2>Your Beacon is<br /><em>one download away.</em></h2>
+          <p>Drop <code style={{fontFamily:"'JetBrains Mono',monospace",fontSize:15,background:"rgba(26,138,125,0.15)",color:"var(--teal)",padding:"2px 6px",borderRadius:4}}>pelagora.md</code> into your project and let your AI take it from there.</p>
           <div className="cta-actions">
             <a href="/pelagora.md" download className="btn btn-primary">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
