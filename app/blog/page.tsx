@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createSupabaseClient } from "@/lib/supabase";
 import { slugifyBlogTitle } from "@/lib/blog-slug";
+import { MOCK_POSTS } from "@/lib/mock-blog-posts";
 
 type BlogPost = {
   id: string;
@@ -14,16 +15,7 @@ type BlogPost = {
 async function getPublishedPosts(): Promise<BlogPost[]> {
   const supabase = createSupabaseClient();
   if (!supabase) {
-    return [
-      {
-        id: "sample-published-1",
-        title: "Building your first beacon node in 10 minutes",
-        slug: "building-your-first-beacon-node-10-minutes",
-        content: "## Published\n\nThis is a published sample post visible on pelagora.org/blog.",
-        image_url: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=80",
-        published_at: new Date().toISOString(),
-      },
-    ];
+    return MOCK_POSTS;
   }
 
   const { data } = await supabase
@@ -33,6 +25,22 @@ async function getPublishedPosts(): Promise<BlogPost[]> {
     .order("published_at", { ascending: false, nullsFirst: false });
 
   return (data || []) as BlogPost[];
+}
+
+function stripMarkdown(md: string): string {
+  return md
+    .replace(/^#{1,6}\s+/gm, "")         // headings
+    .replace(/\*\*(.+?)\*\*/g, "$1")      // bold
+    .replace(/\*(.+?)\*/g, "$1")          // italic
+    .replace(/`{1,3}[^`]*`{1,3}/g, "")   // inline code and fenced blocks
+    .replace(/```[\s\S]*?```/gm, "")      // fenced code blocks
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // links → just text
+    .replace(/^[>\-*+]\s+/gm, "")        // blockquotes, list markers
+    .replace(/^\d+\.\s+/gm, "")          // numbered lists
+    .replace(/\|[^\n]+\|/g, "")          // table rows
+    .replace(/[-|]{3,}/g, "")            // table separators
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 export default async function BlogListPage() {
@@ -54,12 +62,14 @@ export default async function BlogListPage() {
           <div className="post-grid">
             {posts.map((post) => {
               const slug = post.slug || slugifyBlogTitle(post.title);
-              const snippet = post.content.replace(/\s+/g, " ").slice(0, 180);
+              const snippet = stripMarkdown(post.content).slice(0, 180);
               return (
                 <article key={post.id} className="post-card">
                   {post.image_url && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={post.image_url} alt="" className="post-card-img" />
+                    <Link href={`/blog/${slug}`} tabIndex={-1} aria-hidden="true">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={post.image_url} alt="" className="post-card-img" />
+                    </Link>
                   )}
                   <div className="post-card-body">
                     <div className="post-date">
@@ -69,6 +79,12 @@ export default async function BlogListPage() {
                       <Link href={`/blog/${slug}`}>{post.title}</Link>
                     </h2>
                     <p className="post-excerpt">{snippet}{post.content.length > 180 ? "…" : ""}</p>
+                    <Link href={`/blog/${slug}`} className="post-read-more">
+                      Read more
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+                        <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
+                      </svg>
+                    </Link>
                   </div>
                 </article>
               );
