@@ -14,13 +14,8 @@ export default function RunANodePage() {
           src="/images/woman-clothes-shopping.png"
           alt=""
           aria-hidden="true"
-          style={{
-            position: "absolute", right: 0, top: 0, height: "100%",
-            width: "45%", objectFit: "cover", objectPosition: "right top",
-            opacity: 0.35, zIndex: 0,
-            maskImage: "linear-gradient(to right, transparent 0%, black 30%)",
-            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 30%)",
-          }}
+          className="hero-side-img"
+          style={{ objectPosition: "right top" }}
         />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
 <div className="hero-eyebrow">Run a Node</div>

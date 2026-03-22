@@ -302,7 +302,7 @@ footer p { font-size: 13px; color: #ffffffbd; }
   background: radial-gradient(circle, rgba(10,94,138,0.2) 0%, transparent 65%);
 }
 .blog-header .container { position: relative; z-index: 1; }
-.blog-header h1 { font-family: 'Fira Sans', sans-serif; font-size: clamp(32px, 4vw, 48px); font-weight: 700; color: var(--marble); margin-bottom: 10px; }
+.blog-header h1 { font-family: 'Fira Sans', sans-serif; font-size: clamp(40px, 5.5vw, 64px); font-weight: 700; color: var(--marble); margin-bottom: 10px; }
 .blog-header p { color: #ffffffbd; font-size: 17px; }
 
 .blog-section { padding: 60px 0 100px; background: var(--sand); }
@@ -419,6 +419,15 @@ footer p { font-size: 13px; color: #ffffffbd; }
 
 /* ── DEV RESOURCES PAGES ── */
 .container-narrow { max-width: 800px; margin: 0 auto; padding: 0 40px; }
+.hero-side-img {
+  position: absolute; right: 0; top: 0;
+  height: 100%; width: 45%;
+  object-fit: cover; object-position: center top;
+  opacity: 0.55; z-index: 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 30%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
+}
+
 .hero-back {
   display: inline-flex; align-items: center; gap: 6px;
   color: rgba(255,255,255,0.4); text-decoration: none;
@@ -528,6 +537,21 @@ footer p { font-size: 13px; color: #ffffffbd; }
 .block-item code { font-family: 'JetBrains Mono', monospace; font-size: 13px; background: rgba(212,96,42,0.08); color: var(--terracotta); padding: 2px 6px; border-radius: 4px; }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 1023px) {
+  .hero-side-img {
+    position: static;
+    width: 100%; height: 320px;
+    opacity: 1;
+    mask-image: none;
+    -webkit-mask-image: none;
+    display: block;
+    margin-bottom: 48px;
+  }
+  .hero { overflow: visible; }
+  .hero:has(.hero-side-img) { padding-top: 0; padding-bottom: 60px; }
+}
+
+
 @media (max-width: 768px) {
   .nav-inner { padding: 0 20px; }
   .nav-links a:not(.nav-cta) { display: none; }

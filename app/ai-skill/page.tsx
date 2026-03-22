@@ -9,6 +9,13 @@ export default function DevResourcesPage() {
     <main>
       {/* HERO */}
       <section className="hero">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/woman-surfboards.png"
+          alt=""
+          aria-hidden="true"
+          className="hero-side-img"
+        />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <div className="hero-eyebrow">Developer Resources</div>
           <h1>
@@ -19,6 +26,46 @@ export default function DevResourcesPage() {
             you connected, building, or contributing. Download it, drop it in
             your project, and go!
           </p>
+        </div>
+      </section>
+
+      {/* PERSONAS */}
+      <section className="personas" id="personas">
+        <div className="container">
+          <div className="personas-label">What&apos;s Inside the Skill</div>
+          <div className="personas-title">Where do you want to start?</div>
+          <div className="personas-grid">
+            <a href="/get-started" className="persona-card">
+              <div className="persona-icon ocean">⚓</div>
+              <h3>Run a Node</h3>
+              <div className="persona-quote">&quot;I want to join the network&quot;</div>
+              <p>Scaffold a Beacon, connect to the mesh, browse listings, buy and sell directly. Your AI handles the setup.</p>
+              <div className="persona-link">
+                Get started
+                <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
+              </div>
+            </a>
+            <a href="/contribute" className="persona-card">
+              <div className="persona-icon teal">⚙</div>
+              <h3>Build Something</h3>
+              <div className="persona-quote">&quot;I want to build on top of this&quot;</div>
+              <p>Create Skills, extensions, and integrations. Build a rental platform, a local marketplace, or something new entirely.</p>
+              <div className="persona-link">
+                Start building
+                <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
+              </div>
+            </a>
+            <a href="https://github.com/ReffoAI/.github/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer" className="persona-card">
+              <div className="persona-icon terra">✳</div>
+              <h3>Contribute</h3>
+              <div className="persona-quote">&quot;I want to make this better&quot;</div>
+              <p>Submit PRs, fix bugs, improve docs. The skill walks you through repo conventions, tech patterns, and finding work.</p>
+              <div className="persona-link">
+                Contributing guide
+                <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
+              </div>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -71,46 +118,6 @@ export default function DevResourcesPage() {
               <div className="terminal-line"><span className="success">✓</span><span className="output"> MCP server ready</span></div>
               <div className="terminal-line"><span className="success">✓</span><span className="output"> Web UI at <span className="highlight">http://localhost:3000</span></span><span className="terminal-cursor" /></div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PERSONAS */}
-      <section className="personas" id="personas">
-        <div className="container">
-          <div className="personas-label">What&apos;s Inside the Skill</div>
-          <div className="personas-title">One skill. Three paths.</div>
-          <div className="personas-grid">
-            <a href="/get-started" className="persona-card">
-              <div className="persona-icon ocean">⚓</div>
-              <h3>Run a Node</h3>
-              <div className="persona-quote">&quot;I want to join the network&quot;</div>
-              <p>Scaffold a Beacon, connect to the mesh, browse listings, buy and sell directly. Your AI handles the setup.</p>
-              <div className="persona-link">
-                Get started
-                <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
-              </div>
-            </a>
-            <a href="/contribute" className="persona-card">
-              <div className="persona-icon teal">⚙</div>
-              <h3>Build Something</h3>
-              <div className="persona-quote">&quot;I want to build on top of this&quot;</div>
-              <p>Create Skills, extensions, and integrations. Build a rental platform, a local marketplace, or something new entirely.</p>
-              <div className="persona-link">
-                Start building
-                <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
-              </div>
-            </a>
-            <a href="https://github.com/ReffoAI/.github/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer" className="persona-card">
-              <div className="persona-icon terra">✳</div>
-              <h3>Contribute</h3>
-              <div className="persona-quote">&quot;I want to make this better&quot;</div>
-              <p>Submit PRs, fix bugs, improve docs. The skill walks you through repo conventions, tech patterns, and finding work.</p>
-              <div className="persona-link">
-                Contributing guide
-                <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
-              </div>
-            </a>
           </div>
         </div>
       </section>

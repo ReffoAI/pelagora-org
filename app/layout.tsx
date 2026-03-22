@@ -27,8 +27,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Link>
             <div className="nav-links">
               <a href="/ai-skill">AI Skill</a>
-              <a href="https://docs.pelagora.org" target="_blank" rel="noreferrer">Docs</a>
-              <Link href="/blog">Blog</Link>
+              <a href="/contribute">Contribute</a>
+<Link href="/blog">Blog</Link>
               <a href="/get-started" className="nav-cta">Get Started</a>
             </div>
           </div>

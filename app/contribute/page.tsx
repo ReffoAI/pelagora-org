@@ -9,14 +9,17 @@ export default function BuildSomethingPage() {
     <main>
       {/* HERO */}
       <section className="hero">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/bicycle-man.png"
+          alt=""
+          aria-hidden="true"
+          className="hero-side-img"
+        />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <a href="/ai-skill" className="hero-back">
-            <svg viewBox="0 0 24 24"><path d="M19 12H5" /><path d="M12 19l-7-7 7-7" /></svg>
-            Back to Developer Resources
-          </a>
           <div className="hero-eyebrow">Build Something</div>
-          <h1>The network is the platform. <em>Build whatever you want.</em></h1>
-          <p className="hero-sub">
+          <h1 style={{ maxWidth: 700 }}>The network is the platform. <em>Build whatever you want.</em></h1>
+          <p className="hero-sub" style={{ maxWidth: 700 }}>
             Pelagora gives you a mesh of Beacons, a protocol for commerce, and extension points at
             every layer. Build a rental app, a reverse auction engine, or something nobody&apos;s
             thought of yet.
