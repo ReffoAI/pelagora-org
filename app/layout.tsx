@@ -26,11 +26,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <span>PELAGORA</span>
             </Link>
             <div className="nav-links">
-              <a href="/#what">About</a>
-              <a href="/dev-resources">Get Started</a>
+              <a href="/ai-skill">AI Skill</a>
               <a href="https://docs.pelagora.org" target="_blank" rel="noreferrer">Docs</a>
               <Link href="/blog">Blog</Link>
-              <a href="/dev-resources" className="nav-cta">Start Building</a>
+              <a href="/get-started" className="nav-cta">Get Started</a>
             </div>
           </div>
         </nav>
@@ -42,6 +41,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <span>Pelagora</span>
             </div>
             <p>Open source commerce for builders. &copy; 2026</p>
+            <p>Questions? Find us on <a href="https://discord.gg/CfBVrPAC" target="_blank" rel="noreferrer">Discord</a>, or reach out at <a href="mailto:hello@reffo.ai">hello@reffo.ai</a>.</p>
           </div>
         </footer>
       </body>

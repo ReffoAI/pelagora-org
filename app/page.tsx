@@ -15,7 +15,7 @@ export default function HomePage() {
             Grab the Skill, hand it to your AI, and start building.
           </p>
           <div className="hero-actions">
-            <a href="/dev-resources" className="btn btn-primary">
+            <a href="/ai-skill" className="btn btn-primary">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
               </svg>
@@ -32,7 +32,7 @@ export default function HomePage() {
       </section>
 
       {/* WHAT IS PELAGORA */}
-      <section className="what" id="what">
+      <section className="what" id="about">
         <div className="container">
           <div className="section-label">What is Pelagora?</div>
           <div className="section-title">A mesh network for commerce</div>
@@ -61,7 +61,7 @@ export default function HomePage() {
               <h3>Peer Discovery</h3>
               <p>Beacons find each other via <code>DHT</code> — no central registry. Connect to the mesh and browse what others have listed using <code>Schema.org</code> data.</p>
             </a>
-            <a href="/dev-resources" className="what-card" style={{ textDecoration: "none", color: "inherit" }}>
+            <a href="/ai-skill" className="what-card" style={{ textDecoration: "none", color: "inherit" }}>
               <div className="what-card-icon terra">
                 <svg viewBox="0 0 24 24">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
@@ -86,7 +86,7 @@ export default function HomePage() {
               <h3>Grab the Skill</h3>
               <p>
                 Download{" "}
-                <a href="/dev-resources/pelagora.md" download style={{ color: "var(--teal)", textDecoration: "none", fontWeight: 600 }}>
+                <a href="/pelagora.md" download style={{ color: "var(--teal)", textDecoration: "none", fontWeight: 600 }}>
                   <code>pelagora.md</code>
                 </a>{" "}
                 and give it to your AI agent. It contains everything your agent needs to get you set up.
@@ -104,7 +104,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="journey-cta">
-            <a href="/dev-resources/run-a-node">
+            <a href="/get-started">
               See the full walkthrough
               <svg viewBox="0 0 24 24">
                 <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
@@ -155,7 +155,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="usecases-cta">
-                <a href="/dev-resources/build-something">
+                <a href="/contribute">
                   Explore what you can build
                   <svg viewBox="0 0 24 24">
                     <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
@@ -200,24 +200,19 @@ export default function HomePage() {
           <h2>Ready to build on<br /><em>the open sea?</em></h2>
           <p>Grab the Skill, hand it to your AI, and have a Beacon running in minutes.</p>
           <div className="cta-actions">
-            <a href="/dev-resources" className="btn btn-primary">
+            <a href="/ai-skill" className="btn btn-primary">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
               </svg>
               Start Building
             </a>
-            <a href="https://docs.pelagora.org" target="_blank" rel="noreferrer" className="btn btn-secondary">Read the Docs</a>
           </div>
           <div className="cta-links">
             <a href="https://github.com/ReffoAI" target="_blank" rel="noreferrer">
               <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" /></svg>
               GitHub
             </a>
-            <a href="https://docs.pelagora.org" target="_blank" rel="noreferrer">
-              <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" /><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" /></svg>
-              Documentation
-            </a>
-            <a href="https://github.com/ReffoAI/.github/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer">
+            <a href="/contribute">
               <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" /></svg>
               Contribute
             </a>

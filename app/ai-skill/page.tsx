@@ -26,7 +26,7 @@ export default function DevResourcesPage() {
       <section className="skill-band" id="skill">
         <div className="container">
           <div className="skill-band-header">
-            <div className="section-label">Developer Skill</div>
+            <div className="section-label">Hands-free development</div>
             <div className="section-title">Already using AI?</div>
             <div className="section-desc">
               The Pelagora Skill gives your AI agent everything it needs to connect you to the
@@ -81,7 +81,7 @@ export default function DevResourcesPage() {
           <div className="personas-label">What&apos;s Inside the Skill</div>
           <div className="personas-title">One skill. Three paths.</div>
           <div className="personas-grid">
-            <a href="/dev-resources/run-a-node" className="persona-card">
+            <a href="/get-started" className="persona-card">
               <div className="persona-icon ocean">⚓</div>
               <h3>Run a Node</h3>
               <div className="persona-quote">&quot;I want to join the network&quot;</div>
@@ -91,7 +91,7 @@ export default function DevResourcesPage() {
                 <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
               </div>
             </a>
-            <a href="/dev-resources/build-something" className="persona-card">
+            <a href="/contribute" className="persona-card">
               <div className="persona-icon teal">⚙</div>
               <h3>Build Something</h3>
               <div className="persona-quote">&quot;I want to build on top of this&quot;</div>
@@ -119,7 +119,7 @@ export default function DevResourcesPage() {
       <section className="cta">
         <div className="container">
           <h2>Your Beacon is<br /><em>one download away.</em></h2>
-          <p>Drop <code style={{fontFamily:"'JetBrains Mono',monospace",fontSize:15,background:"rgba(26,138,125,0.15)",color:"var(--teal)",padding:"2px 6px",borderRadius:4}}>pelagora.md</code> into your project and let your AI take it from there.</p>
+          <p>Drop <code>pelagora.md</code> into your project and let your AI take it from there.</p>
           <div className="cta-actions">
             <a href="/pelagora.md" download className="btn btn-primary">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -136,17 +136,17 @@ export default function DevResourcesPage() {
               <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" /></svg>
               GitHub
             </a>
-            <a href="https://docs.pelagora.org" target="_blank" rel="noreferrer">
-              <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" /><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" /></svg>
-              Documentation
-            </a>
-            <a href="https://github.com/ReffoAI/.github/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer">
+            <a href="/contribute">
               <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" /></svg>
               Contribute
             </a>
             <a href="https://github.com/orgs/ReffoAI/discussions" target="_blank" rel="noreferrer">
               <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" /></svg>
               Community
+            </a>
+            <a href="/brand">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
+              Branding
             </a>
           </div>
         </div>
