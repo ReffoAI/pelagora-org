@@ -28,7 +28,7 @@ export default function BuildSomethingPage() {
               </svg>
               Skill-Building Guide
             </a>
-            <a href="https://docs.pelagora.org/pelagora/api-reference" target="_blank" rel="noreferrer" className="btn btn-secondary">
+            <a href="https://docs.pelagora.org/glossary/beacon/api-reference" target="_blank" rel="noreferrer" className="btn btn-secondary">
               API Reference
             </a>
           </div>
@@ -62,7 +62,7 @@ export default function BuildSomethingPage() {
             <div className="idea-card">
               <div className="idea-card-icon mixed">⚙</div>
               <h3>Group Buy Coordinator</h3>
-              <p>Aggregate demand across the mesh. Buyers pool together, hit a threshold, unlock bulk pricing. The Skill handles commitments, deadlines, and notifications. See the <a href="https://docs.pelagora.org/pim-protocol/" target="_blank" rel="noreferrer">PIM Protocol</a> for data types.</p>
+              <p>Aggregate demand across the mesh. Buyers pool together, hit a threshold, unlock bulk pricing. The Skill handles commitments, deadlines, and notifications. See the <a href="https://docs.pelagora.org/glossary/pim-protocol/" target="_blank" rel="noreferrer">PIM Protocol</a> for data types.</p>
             </div>
             <div className="idea-card">
               <div className="idea-card-icon ocean">🏘</div>
@@ -90,7 +90,7 @@ export default function BuildSomethingPage() {
             <div>
               <div className="block-item">
                 <h3>REST API <span className="block-badge api">API</span></h3>
-                <p>Every Beacon exposes a local <a href="https://docs.pelagora.org/pelagora/api-reference" target="_blank" rel="noreferrer">REST API</a> for managing inventory, offers, and negotiations. Build frontends, scripts, or integrations that talk to your Beacon programmatically.</p>
+                <p>Every Beacon exposes a local <a href="https://docs.pelagora.org/glossary/beacon/api-reference" target="_blank" rel="noreferrer">REST API</a> for managing inventory, offers, and negotiations. Build frontends, scripts, or integrations that talk to your Beacon programmatically.</p>
                 <ul>
                   <li><strong>Items</strong> — CRUD operations for your inventory</li>
                   <li><strong>Offers</strong> — Create, accept, counter, or reject price offers</li>
@@ -100,7 +100,7 @@ export default function BuildSomethingPage() {
               </div>
               <div className="block-item">
                 <h3>DHT Events <span className="block-badge event">Events</span></h3>
-                <p>The <a href="https://docs.pelagora.org/pelagora/dht-networking" target="_blank" rel="noreferrer">Distributed Hash Table</a> fires events when things happen on the network — new peers, incoming offers, search queries. Subscribe to these events to build reactive Skills.</p>
+                <p>The <a href="https://docs.pelagora.org/glossary/pelagora/dht-networking" target="_blank" rel="noreferrer">Distributed Hash Table</a> fires events when things happen on the network — new peers, incoming offers, search queries. Subscribe to these events to build reactive Skills.</p>
                 <ul>
                   <li><strong>peer:discovered</strong> — A new Beacon joined the mesh</li>
                   <li><strong>offer:received</strong> — Someone wants to buy or negotiate</li>
@@ -111,7 +111,7 @@ export default function BuildSomethingPage() {
             <div>
               <div className="block-item">
                 <h3>MCP Server <span className="block-badge tool">Tool</span></h3>
-                <p>The <a href="https://docs.pelagora.org/mcp-server/" target="_blank" rel="noreferrer"><code>@pelagora/mcp</code></a> server lets AI agents interact with your Beacon. Register custom <a href="https://docs.pelagora.org/mcp-server/tools" target="_blank" rel="noreferrer">tools</a> so your AI can do things specific to your app.</p>
+                <p>The <a href="https://docs.pelagora.org/glossary/mcp-server/" target="_blank" rel="noreferrer"><code>@pelagora/mcp</code></a> server lets AI agents interact with your Beacon. Register custom <a href="https://docs.pelagora.org/glossary/mcp-server/tools" target="_blank" rel="noreferrer">tools</a> so your AI can do things specific to your app.</p>
                 <div className="terminal">
                   <div className="terminal-bar">
                     <div className="terminal-dot red" /><div className="terminal-dot yellow" /><div className="terminal-dot green" />
@@ -156,7 +156,7 @@ export default function BuildSomethingPage() {
               <p>Step-by-step walkthrough of creating, testing, and publishing a Pelagora Skill. Covers project structure, event handling, and packaging.</p>
               <div className="card-link">Read the guide <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg></div>
             </a>
-            <a href="https://docs.pelagora.org/pelagora/api-reference" target="_blank" rel="noreferrer" className="next-card">
+            <a href="https://docs.pelagora.org/glossary/beacon/api-reference" target="_blank" rel="noreferrer" className="next-card">
               <h3>API &amp; Data Model</h3>
               <p>Full documentation for the Beacon REST API, DHT message types, MCP tool registration, and PIM Protocol data schemas.</p>
               <div className="card-link">API docs <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg></div>

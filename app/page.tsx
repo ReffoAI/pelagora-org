@@ -40,7 +40,7 @@ export default function HomePage() {
             Not an app. Not a platform. A protocol layer that lets you build any commerce experience on a decentralized network of Beacons.
           </div>
           <div className="what-grid">
-            <a href="https://docs.pelagora.org/pelagora/" target="_blank" rel="noreferrer" className="what-card" style={{ textDecoration: "none", color: "inherit" }}>
+            <a href="https://docs.pelagora.org/glossary/pelagora/" target="_blank" rel="noreferrer" className="what-card" style={{ textDecoration: "none", color: "inherit" }}>
               <div className="what-card-icon ocean">
                 <svg viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="3" />
@@ -50,7 +50,7 @@ export default function HomePage() {
               <h3>Beacons</h3>
               <p>Each node on the network is a Beacon — a lightweight server you run on your machine. Your data stays yours. You choose what to share.</p>
             </a>
-            <a href="https://docs.pelagora.org/pelagora/dht-networking" target="_blank" rel="noreferrer" className="what-card" style={{ textDecoration: "none", color: "inherit" }}>
+            <a href="https://docs.pelagora.org/glossary/pelagora/dht-networking" target="_blank" rel="noreferrer" className="what-card" style={{ textDecoration: "none", color: "inherit" }}>
               <div className="what-card-icon teal">
                 <svg viewBox="0 0 24 24">
                   <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
@@ -75,7 +75,7 @@ export default function HomePage() {
       </section>
 
       {/* JOURNEY */}
-      <section className="journey" id="journey">
+      <section className="journey" id="journey" style={{ paddingBottom: 0 }}>
         <div className="container">
           <div className="section-label">Get Started</div>
           <div className="section-title">Three steps to your first Beacon</div>
@@ -112,6 +112,15 @@ export default function HomePage() {
             </a>
           </div>
         </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/woman-clothes-rack.png"
+          alt="Woman browsing clothes on a rack"
+          style={{
+            width: "100%", height: 450, objectFit: "cover",
+            objectPosition: "center 15%", marginTop: 50, display: "block",
+          }}
+        />
       </section>
 
       {/* USE CASES + TERMINAL */}

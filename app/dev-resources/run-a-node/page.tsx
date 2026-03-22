@@ -23,14 +23,10 @@ export default function RunANodePage() {
           }}
         />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <a href="/dev-resources" className="hero-back">
-            <svg viewBox="0 0 24 24"><path d="M19 12H5" /><path d="M12 19l-7-7 7-7" /></svg>
-            Back to Get the Skill
-          </a>
-          <div className="hero-eyebrow">Run a Node</div>
+<div className="hero-eyebrow">Run a Node</div>
           <h1>Three steps to listing your first item <em>for sale on Pelagora</em></h1>
           <p className="hero-sub">
-            You don&apos;t need the Reffo UI. Grab the skill, hand it to your AI, and your agent
+            You don&apos;t need the <a href="https://www.reffo.ai/" target="_blank" rel="noreferrer" style={{color:"var(--teal)",fontWeight:600,textDecoration:"none"}}>Reffo UI</a>. Grab the skill, hand it to your AI, and your agent
             will have you connected and selling in minutes.
           </p>
           <div className="hero-actions">
@@ -111,7 +107,7 @@ export default function RunANodePage() {
             <p>The installer creates a complete project with:</p>
             <ul>
               <li><strong>package.json</strong> with <code>pelagora</code> as a dependency</li>
-              <li><strong>.env</strong> with your port and optional Reffo API key (<a href="https://docs.pelagora.org/pelagora/configuration" target="_blank" rel="noreferrer">see all config options</a>)</li>
+              <li><strong>.env</strong> with your port and optional Reffo API key (<a href="https://docs.pelagora.org/glossary/beacon/configuration" target="_blank" rel="noreferrer">see all config options</a>)</li>
               <li><strong>uploads/</strong> directory for item photos and media</li>
             </ul>
             <div className="callout">
@@ -149,12 +145,12 @@ export default function RunANodePage() {
             </div>
             <p>Once connected, you can:</p>
             <ul>
-              <li><strong>Browse the network</strong> through the built-in <a href="https://docs.pelagora.org/pelagora/web-ui" target="_blank" rel="noreferrer">Web UI</a> at <code>localhost:3000</code></li>
+              <li><strong>Browse the network</strong> through the built-in <a href="https://docs.pelagora.org/glossary/pelagora/web-ui" target="_blank" rel="noreferrer">Web UI</a> at <code>localhost:3000</code></li>
               <li><strong>Search for items</strong> listed by other Beacons on the mesh</li>
               <li><strong>Set your profile</strong> — give your Beacon a name, location, and description so others can find you</li>
             </ul>
             <div className="callout">
-              <p><strong>Want AI access?</strong> Install the MCP server with <code>npm install -g @pelagora/mcp</code> and your AI agent can browse the network, manage inventory, and negotiate on your behalf. See the <a href="https://docs.pelagora.org/mcp-server/" target="_blank" rel="noreferrer">MCP server docs</a>.</p>
+              <p><strong>Want AI access?</strong> Install the MCP server with <code>npm install -g @pelagora/mcp</code> and your AI agent can browse the network, manage inventory, and negotiate on your behalf. See the <a href="https://docs.pelagora.org/glossary/mcp-server/" target="_blank" rel="noreferrer">MCP server docs</a>.</p>
             </div>
           </div>
         </div>
@@ -213,7 +209,7 @@ export default function RunANodePage() {
             Your Beacon is running and your first item is listed. The Pelagora Skill has two more paths to explore.
           </div>
           <div className="whats-next-grid">
-            <a href="https://docs.pelagora.org/mcp-server/" target="_blank" rel="noreferrer" className="next-card">
+            <a href="https://docs.pelagora.org/glossary/mcp-server/" target="_blank" rel="noreferrer" className="next-card">
               <h3>Set Up the MCP Server</h3>
               <p>Give your AI agent full access to your Beacon — manage inventory, search the network, and handle negotiations hands-free.</p>
               <div className="card-link">MCP docs <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg></div>
