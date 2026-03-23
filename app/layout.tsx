@@ -1,6 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
+import NavLinks from "./NavLinks";
 import type { ReactNode } from "react";
 
 export const metadata = {
@@ -25,13 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <Image src="/images/pelagora-logo_reverse_sm.png" alt="Pelagora" width={30} height={30} style={{ height: 30, width: "auto" }} />
               <span>PELAGORA</span>
             </Link>
-            <div className="nav-links">
-              <a href="/#what">About</a>
-              <a href="/dev-resources">Get Started</a>
-              <a href="https://docs.pelagora.org" target="_blank" rel="noreferrer">Docs</a>
-              <Link href="/blog">Blog</Link>
-              <a href="/dev-resources" className="nav-cta">Start Building</a>
-            </div>
+            <NavLinks />
           </div>
         </nav>
         {children}
@@ -42,6 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <span>Pelagora</span>
             </div>
             <p>Open source commerce for builders. &copy; 2026</p>
+            <p>Questions? Find us on <a href="https://discord.gg/CfBVrPAC" target="_blank" rel="noreferrer">Discord</a>, or reach out at <a href="mailto:hello@reffo.ai">hello@reffo.ai</a>.</p>
           </div>
         </footer>
       </body>
