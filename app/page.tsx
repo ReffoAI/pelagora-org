@@ -1,3 +1,5 @@
+import NotTechnical from "./buy-or-sell/NotTechnical";
+
 export default function HomePage() {
   return (
     <main>
@@ -71,11 +73,15 @@ export default function HomePage() {
               <p>Extend your Beacon with modular Skills — reverse auctions, rental managers, group buys. Build your own or install from the community.</p>
             </a>
           </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/Pelagora_Landing.png" alt="Pelagora network diagram" style={{ width: "100%", borderRadius: 12, marginTop: 48, display: "block", border: "1px solid #e0dbd5", boxShadow: "0 4px 24px rgba(0,0,0,0.07)" }} />
         </div>
       </section>
 
+      <NotTechnical />
+
       {/* JOURNEY */}
-      <section className="journey" id="journey" style={{ paddingBottom: 0 }}>
+      <section className="journey" id="journey" style={{ paddingBottom: 0, background: "var(--marble)" }}>
         <div className="container">
           <div className="section-label">Get Started</div>
           <div className="section-title">Three steps to your first Beacon</div>
@@ -104,7 +110,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="journey-cta">
-            <a href="/get-started">
+            <a href="/buy-or-sell">
               See the full walkthrough
               <svg viewBox="0 0 24 24">
                 <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
@@ -114,8 +120,8 @@ export default function HomePage() {
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/woman-clothes-rack.png"
-          alt="Woman browsing clothes on a rack"
+          src="/images/woman-surfboards.png"
+          alt="Woman gazing at a row of surfboards"
           style={{
             width: "100%", height: 450, objectFit: "cover",
             objectPosition: "center 15%", marginTop: 50, display: "block",
@@ -123,94 +129,29 @@ export default function HomePage() {
         />
       </section>
 
-      {/* USE CASES + TERMINAL */}
-      <section className="usecases" id="build">
-        <div className="container">
-          <div className="section-label">What Can You Build?</div>
-          <div className="section-title">Your commerce, your rules</div>
-          <div className="section-desc">Pelagora is the network. What you build on it is up to you.</div>
-          <div className="usecases-grid">
-            <div>
-              <div className="usecase-cards">
-                <div className="usecase-card">
-                  <div className="usecase-icon">&#9878;</div>
-                  <div>
-                    <h4>Peer-to-Peer Marketplace</h4>
-                    <p>List items, negotiate offers, trade directly. No middleman fees, no platform lock-in. Your listings live on your Beacon.</p>
-                  </div>
-                </div>
-                <div className="usecase-card">
-                  <div className="usecase-icon">&#9973;</div>
-                  <div>
-                    <h4>Rental Network</h4>
-                    <p>Rent out surfboards, cameras, tools — anything. Availability, pricing, and booking all managed from your Beacon.</p>
-                  </div>
-                </div>
-                <div className="usecase-card">
-                  <div className="usecase-icon">&#10035;</div>
-                  <div>
-                    <h4>Group Buy Coordinator</h4>
-                    <p>Aggregate demand across the mesh. Buyers pool together, hit a threshold, unlock bulk pricing. The Skill handles the logic.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="usecases-cta">
-                <a href="/contribute">
-                  Explore what you can build
-                  <svg viewBox="0 0 24 24">
-                    <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div className="terminal">
-              <div className="terminal-bar">
-                <div className="terminal-dot red"></div>
-                <div className="terminal-dot yellow"></div>
-                <div className="terminal-dot green"></div>
-                <div className="terminal-title">terminal</div>
-              </div>
-              <div className="terminal-body">
-                <div className="terminal-line"><span className="comment"># Install the Pelagora CLI</span></div>
-                <div className="terminal-line"><span className="prompt">$ </span><span className="cmd">npx create-reffo-beacon my-surf-shop</span></div>
-                <div className="terminal-line"><span className="output">&nbsp;</span></div>
-                <div className="terminal-line"><span className="success">✓</span><span className="output"> Beacon created at ./my-surf-shop</span></div>
-                <div className="terminal-line"><span className="success">✓</span><span className="output"> Connected to Pelagora mesh</span></div>
-                <div className="terminal-line"><span className="success">✓</span><span className="output"> MCP server ready</span></div>
-                <div className="terminal-line"><span className="output">&nbsp;</span></div>
-                <div className="terminal-line"><span className="comment"># Create your first listing</span></div>
-                <div className="terminal-line">
-                  <span className="prompt">$ </span>
-                  <span className="cmd">{"curl localhost:3000/api/refs -d '{\"name\": \""}<span className="highlight">Channel Islands Surfboard</span>{"\"}'"}
-                  </span>
-                </div>
-                <div className="terminal-line">
-                  <span className="output">→ Ref <span className="highlight">ref_8x7k2m</span> published to mesh (12 peers)</span>
-                  <span className="terminal-cursor"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* CTA */}
       <section className="cta">
         <div className="container">
-          <h2>Ready to build on<br /><em>the open sea?</em></h2>
-          <p>Grab the Skill, hand it to your AI, and have a Beacon running in minutes.</p>
+          <h2>Ready to join<br /><em>the open network?</em></h2>
+          <p>Spin up a Beacon, list your first item, and start trading on the decentralized commerce mesh.</p>
           <div className="cta-actions">
-            <a href="/ai-skill" className="btn btn-primary">
+            <a href="/buy-or-sell" className="btn btn-primary">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
               </svg>
-              Start Building
+              Buy or Sell
             </a>
           </div>
           <div className="cta-links">
             <a href="https://github.com/ReffoAI" target="_blank" rel="noreferrer">
               <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" /></svg>
               GitHub
+            </a>
+            <a href="/build">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 12l-8.5 8.5a2.12 2.12 0 01-3-3L12 9"/><path d="M17.64 15L22 10.64"/><path d="M20.91 11.7l-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.75l-2.25-2.25-.75.75c-.85 0-1.65-.33-2.25-.93L12.23 3.77c-.6-.6-1.4-.93-2.25-.93H9l3.25 3.25"/></svg>
+              Build
             </a>
             <a href="/contribute">
               <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" /></svg>

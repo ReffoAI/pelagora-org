@@ -1,6 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
+import NavLinks from "./NavLinks";
 import type { ReactNode } from "react";
 
 export const metadata = {
@@ -25,12 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <Image src="/images/pelagora-logo_reverse_sm.png" alt="Pelagora" width={30} height={30} style={{ height: 30, width: "auto" }} />
               <span>PELAGORA</span>
             </Link>
-            <div className="nav-links">
-              <a href="/ai-skill">AI Skill</a>
-              <a href="/contribute">Contribute</a>
-<Link href="/blog">Blog</Link>
-              <a href="/get-started" className="nav-cta">Get Started</a>
-            </div>
+            <NavLinks />
           </div>
         </nav>
         {children}

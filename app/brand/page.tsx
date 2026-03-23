@@ -10,7 +10,7 @@ export default function BrandPage() {
   return (
     <div className={styles.page}>
       {/* SECONDARY NAV */}
-      <nav className={styles.brandNav}>
+      <div className={styles.brandNav}>
         <div className={styles.brandNavInner}>
           <a href="#origin">Origin</a>
           <a href="#logo">Logo</a>
@@ -22,7 +22,7 @@ export default function BrandPage() {
           <a href="#comparison">Pelagora vs Reffo</a>
           <a href="#dos-donts">Do&apos;s &amp; Don&apos;ts</a>
         </div>
-      </nav>
+      </div>
 
       {/* HERO */}
       <section className={styles.hero}>
@@ -64,7 +64,7 @@ export default function BrandPage() {
       <section className={styles.logoSection} id="logo">
         <div className={styles.container}>
           <div className={styles.sectionLabel}>02 — Logo &amp; Mark</div>
-          <div className={styles.sectionTitle}>Logo brief</div>
+          <div className={styles.sectionTitle}>Logo - WIP</div>
           <div className={styles.sectionDesc}>An octopus-column mark paired with the Pelagora wordmark in Josefin Sans. The octopus tentacles form the ionic volutes of a Greek column capital.</div>
           <div className={styles.logoBrief}>
             <div className={styles.briefCard}>
@@ -350,7 +350,7 @@ export default function BrandPage() {
       <section className={styles.comparison} id="comparison">
         <div className={styles.container}>
           <div className={styles.sectionLabel}>08 — Brand Separation</div>
-          <div className={styles.sectionTitle}>Pelagora vs. Reffo</div>
+          <div className={styles.sectionTitle}>Pelagora vs. <a href="https://reffo.ai" target="_blank" rel="noreferrer" style={{color:"var(--teal)",fontWeight:600,textDecoration:"none"}}>Reffo</a></div>
           <div className={styles.sectionDesc}>Two distinct brands. One builds the network; the other is an app on it.</div>
           <table className={styles.comparisonTable}>
             <thead>
@@ -379,11 +379,11 @@ export default function BrandPage() {
           <div className={styles.ddGrid}>
             <div className={`${styles.ddCol} ${styles.do}`}>
               <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M20 6L9 17l-5-5"/></svg> Do</h3>
-              {["Use the octopus mark consistently across all contexts","Lead with the builder narrative: "what will you build?"","Show real code and terminal output in marketing","Reference the Mediterranean aesthetic in illustration, not cliché","Keep copy concise — this audience scans"].map((item) => <div className={styles.ddItem} key={item}>{item}</div>)}
+              {["Use the octopus mark consistently across all contexts","Lead with the builder narrative: \u201cwhat will you build?\u201d","Show real code and terminal output in marketing","Reference the Mediterranean aesthetic in illustration, not cliché","Keep copy concise — this audience scans"].map((item) => <div className={styles.ddItem} key={item}>{item}</div>)}
             </div>
             <div className={`${styles.ddCol} ${styles.dont}`}>
               <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg> Don&apos;t</h3>
-              {["Use the Reffo logo alongside Pelagora as co-brands","Use stock photography of people in suits","Say "blockchain" or "web3" — decentralized, not crypto","Over-explain what an AI agent is — the audience knows","Use gradients on the logo or write paragraphs when a code snippet would do"].map((item) => <div className={styles.ddItem} key={item}>{item}</div>)}
+              {["Use the Reffo logo alongside Pelagora as co-brands","Use stock photography of people in suits","Say \u201cblockchain\u201d or \u201cweb3\u201d — decentralized, not crypto","Over-explain what an AI agent is — the audience knows","Use gradients on the logo or write paragraphs when a code snippet would do"].map((item) => <div className={styles.ddItem} key={item}>{item}</div>)}
             </div>
           </div>
         </div>
