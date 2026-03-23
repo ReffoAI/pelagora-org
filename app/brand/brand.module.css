@@ -7,7 +7,7 @@
   overflow-x: auto;
 }
 .brandNavInner {
-  max-width: 1280px; margin: 0 auto;
+  max-width: 1080px; margin: 0 auto;
   display: flex; align-items: center; gap: 32px;
   padding: 0 40px; height: 44px;
 }
@@ -223,12 +223,16 @@
 .assetNaming .ext { color: var(--terracotta); }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 1170px) {
+  .brandNavInner { padding: 0 24px; }
+}
+
 @media (max-width: 768px) {
   .page > section { padding: 56px 24px; }
   .hero { padding: 80px 24px 64px; }
   .hero h1 { max-width: 100%; font-size: 40px; }
   .heroBg { opacity: 0.06; right: -20%; width: 80%; }
-  .brandNavInner { padding: 0 20px; gap: 20px; }
+  .brandNavInner { padding: 0 20px; gap: 20px; margin: 0; width: max-content; }
   .originGrid, .visualGrid, .voiceCards, .ddGrid, .termGrid, .voiceRulesGrid, .rulesGrid { grid-template-columns: 1fr; }
   .logoBrief { grid-template-columns: 1fr; }
   .logoGrid { grid-template-columns: 1fr; padding: 32px; }

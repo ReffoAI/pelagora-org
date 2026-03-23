@@ -131,7 +131,19 @@ Your IP address is visible to peers you connect with — the same trade-off as a
 
 Skills are Markdown files. That's it. They contain structured instructions that an AI agent can read and execute to extend a Beacon's capabilities.
 
-The canonical example is \`pelagora.md\` — the bootstrap Skill that installs and configures a Beacon from scratch. But Skills can do anything: add auction logic, manage rental calendars, run group buys, handle escrow.
+The canonical example is [\`pelagora.md\`](/pelagora.md) — the bootstrap Skill that installs and configures a Beacon from scratch. But Skills can do anything: add auction logic, manage rental calendars, run group buys, handle escrow.
+
+## Who writes Skills?
+
+Three kinds of people tend to reach for Skill authoring:
+
+**Developers building commerce apps on Pelagora.** If you're building a rental platform, a local marketplace, or anything on top of the network, you'll eventually want logic that lives outside your Beacon's core — bidding rules, escrow flows, access control. Skills let you package that logic in a way that AI agents can execute without custom integrations.
+
+**AI power users who want to automate buying or selling.** If you already use Claude, ChatGPT, or another agent day-to-day, a Skill is how you give it Pelagora-specific superpowers. Instead of explaining Pelagora's API every time, you write the Skill once and hand it to your agent whenever you need it.
+
+**Community contributors.** The Skills registry is community-driven. If you've figured out a workflow — reverse auctions, subscription gating, group buys — packaging it as a Skill lets anyone else on the network use it with a single download.
+
+You don't need to be a seasoned engineer. If you can write clear instructions and basic JSON, you can write a Skill.
 
 ## Anatomy of a Skill
 

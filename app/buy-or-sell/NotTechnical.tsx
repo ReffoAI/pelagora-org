@@ -46,7 +46,8 @@ export default function NotTechnical() {
               </a>
             </div>
             <div className="nontechnical-media">
-              <div className="img-placeholder" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/surprised-teen.png" alt="" className="img-placeholder" style={{ objectFit: "cover" }} />
             </div>
           </div>
         )}

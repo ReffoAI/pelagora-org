@@ -23,8 +23,7 @@ export default function DevResourcesPage() {
           </h1>
           <p className="hero-sub">
             The Pelagora Skill gives your AI agent everything it needs to get
-            you connected, building, or contributing. Download it, drop it in
-            your project, and go!
+            you connected, building, or contributing. 
           </p>
           <div className="hero-actions">
             <a href="/pelagora.md" download className="btn btn-primary">
@@ -53,10 +52,8 @@ export default function DevResourcesPage() {
             <div className="section-label">Hands-free development</div>
             <div className="section-title">Already using AI?</div>
             <div className="section-desc">
-              The Pelagora Skill gives your AI agent everything it needs to connect you to the
-              network, spin up a Beacon, and start building commerce apps. Drop{" "}
-              <code>pelagora.md</code> into your project. Your AI agent picks it up and knows how
-              to get you connected, building, or contributing.
+              An AI Skill is simply a markdown file that teaches your AI agent how to do something. In this case, it's how to connect you to the Pelagora
+              network, spin up a Beacon, and start buying or selling items.
             </div>
           </div>
           <div className="terminal">
@@ -126,7 +123,7 @@ export default function DevResourcesPage() {
       <section className="cta">
         <div className="container">
           <h2>Your Beacon is<br /><em>one download away.</em></h2>
-          <p>Drop <code>pelagora.md</code> into your project and let your AI take it from there.</p>
+          <p>Drop <a href="/pelagora.md" download style={{ color: "var(--teal)", textDecoration: "none", fontWeight: 600 }}><code>pelagora.md</code></a> into your project and let your AI take it from there.</p>
           <div className="cta-actions">
             <a href="/pelagora.md" download className="btn btn-primary">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
