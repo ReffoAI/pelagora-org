@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 export const metadata = {
   title: "Pelagora — The Open Source Commerce Network",
   description: "Build commerce apps on a decentralized network. Grab the Skill, spin up a Beacon, start building.",
+  icons: { icon: { url: "/favicon.svg", type: "image/svg+xml" } },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
