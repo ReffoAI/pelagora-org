@@ -2,6 +2,7 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import NavLinks from "./NavLinks";
+import { Analytics } from "@vercel/analytics/react";
 import type { ReactNode } from "react";
 
 export const metadata = {
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
         </nav>
         {children}
+        <Analytics />
         <footer>
           <div className="container">
             <div className="footer-brand">
