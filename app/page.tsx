@@ -1,3 +1,5 @@
+import { TrackedLink } from "@/components/TrackedLink";
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
 
 export const metadata = {
@@ -45,39 +47,18 @@ export default function HomePage() {
             marketplace. Grab the Skill, hand it to your AI, and start building.
           </p>
           <div className="hero-actions">
-            <a href="/ai-skill" className="btn btn-primary">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M5 12h14" />
-                <path d="M12 5l7 7-7 7" />
+            <TrackedLink href="/ai-skill" className="btn btn-primary" event="hero_cta_clicked" eventProps={{ page: "home", cta_label: "Start Building", destination: "/ai-skill" }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
               </svg>
               Start Building
-            </a>
-            <a
-              href="https://docs.pelagora.org"
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-secondary"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
-                <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+            </TrackedLink>
+            <TrackedLink href="https://docs.pelagora.org" target="_blank" rel="noreferrer" className="btn btn-secondary" event="docs_link_clicked" eventProps={{ source_page: "home" }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" /><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
               </svg>
               Read the Docs
-            </a>
+            </TrackedLink>
           </div>
         </div>
       </section>
@@ -190,19 +171,10 @@ export default function HomePage() {
               <h3>Grab the Skill</h3>
               <p>
                 Download{" "}
-                <a
-                  href="/pelagora.md"
-                  download
-                  style={{
-                    color: "var(--teal)",
-                    textDecoration: "none",
-                    fontWeight: 600,
-                  }}
-                >
+                <TrackedLink href="/pelagora.md" download style={{ color: "var(--teal)", textDecoration: "none", fontWeight: 600 }} event="skill_downloaded" eventProps={{ source_page: "home" }}>
                   <code>pelagora.md</code>
-                </a>{" "}
-                and give it to your AI agent. It contains everything your agent
-                needs to get you set up.
+                </TrackedLink>{" "}
+                and give it to your AI agent. It contains everything your agent needs to get you set up.
               </p>
             </div>
 
@@ -265,33 +237,19 @@ export default function HomePage() {
           </p>
 
           <div className="cta-actions">
-            <a href="/buy-or-sell" className="btn btn-primary">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M5 12h14" />
-                <path d="M12 5l7 7-7 7" />
+            <TrackedLink href="/buy-or-sell" className="btn btn-primary" event="hero_cta_clicked" eventProps={{ page: "home", cta_label: "Buy or Sell", destination: "/buy-or-sell" }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
               </svg>
               Buy or Sell
-            </a>
+            </TrackedLink>
           </div>
 
           <div className="cta-links">
-            <a
-              href="https://github.com/ReffoAI"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <svg viewBox="0 0 24 24">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
-              </svg>
+            <TrackedLink href="https://github.com/ReffoAI" target="_blank" rel="noreferrer" event="github_clicked" eventProps={{ source_page: "home", destination: "org" }}>
+              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" /></svg>
               GitHub
-            </a>
+            </TrackedLink>
             <a href="/build">
               <svg
                 viewBox="0 0 24 24"
@@ -315,16 +273,10 @@ export default function HomePage() {
               </svg>
               Contribute
             </a>
-            <a
-              href="https://github.com/orgs/ReffoAI/discussions"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <svg viewBox="0 0 24 24">
-                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
-              </svg>
+            <TrackedLink href="https://github.com/orgs/ReffoAI/discussions" target="_blank" rel="noreferrer" event="discussions_clicked" eventProps={{ source_page: "home" }}>
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" /></svg>
               Community
-            </a>
+            </TrackedLink>
             <a href="/brand">
               <svg viewBox="0 0 24 24">
                 <path d="M12 2L2 7l10 5 10-5-10-5z" />

@@ -1,3 +1,5 @@
+import { TrackedLink } from "@/components/TrackedLink";
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
 
 export const metadata = {
@@ -40,15 +42,15 @@ export default function ContributePage() {
             protocol feature — every contribution shapes what commerce looks like on the open web.
           </p>
           <div className="hero-actions">
-            <a href="https://github.com/ReffoAI/.github/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer" className="btn btn-primary">
+            <TrackedLink href="https://github.com/ReffoAI/.github/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer" className="btn btn-primary" event="hero_cta_clicked" eventProps={{ page: "contribute", cta_label: "Contribution Guide", destination: "github/contributing" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
               </svg>
               Contribution Guide
-            </a>
-            <a href="https://github.com/ReffoAI" target="_blank" rel="noreferrer" className="btn btn-secondary">
+            </TrackedLink>
+            <TrackedLink href="https://github.com/ReffoAI" target="_blank" rel="noreferrer" className="btn btn-secondary" event="github_clicked" eventProps={{ source_page: "contribute", destination: "org" }}>
               View on GitHub
-            </a>
+            </TrackedLink>
           </div>
         </div>
       </section>
@@ -115,11 +117,11 @@ export default function ContributePage() {
               <p>RFCs, feature proposals, and community Q&amp;A. This is where protocol-level decisions get debated before becoming PRs.</p>
               <div className="card-link">Join the conversation <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg></div>
             </a>
-            <a href="https://discord.gg/CfBVrPAC" target="_blank" rel="noreferrer" className="next-card">
+            <TrackedLink href="https://discord.gg/CfBVrPAC" target="_blank" rel="noreferrer" className="next-card" event="discord_clicked" eventProps={{ source_page: "contribute" }} style={{ textDecoration: "none", color: "inherit" }}>
               <h3>Discord</h3>
               <p>Real-time chat with other contributors. Good place to ask quick questions, share work-in-progress, or find a collaborator.</p>
               <div className="card-link">Join Discord <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg></div>
-            </a>
+            </TrackedLink>
           </div>
           <div className="journey-cta">
             <a href="https://github.com/ReffoAI/.github/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer">

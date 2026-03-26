@@ -1,5 +1,6 @@
 import styles from "./brand.module.css";
 import Image from "next/image";
+import { PageTracker } from "@/components/PageTracker";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
 
@@ -25,6 +26,7 @@ export const metadata = {
 export default function BrandPage() {
   return (
     <div className={styles.page}>
+      <PageTracker event="brand_page_viewed" />
       {/* SECONDARY NAV */}
       <div className={styles.brandNav}>
         <div className={styles.brandNavInner}>

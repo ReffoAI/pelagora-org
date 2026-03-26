@@ -1,3 +1,5 @@
+import { TrackedLink } from "@/components/TrackedLink";
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
 
 export const metadata = {
@@ -39,24 +41,24 @@ export default function DevResourcesPage() {
           </h1>
           <p className="hero-sub">
             The Pelagora Skill gives your AI agent everything it needs to get
-            you connected, building, or contributing. 
+            you connected, building, or contributing.
           </p>
           <div className="hero-actions">
-            <a href="/pelagora.md" download className="btn btn-primary">
+            <TrackedLink href="/pelagora.md" download className="btn btn-primary" event="skill_downloaded" eventProps={{ source_page: "ai-skill" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
                 <polyline points="7 10 12 15 17 10" />
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
               Download AI Skill
-            </a>
-            <a href="https://docs.pelagora.org" target="_blank" rel="noreferrer" className="btn btn-secondary">
+            </TrackedLink>
+            <TrackedLink href="https://docs.pelagora.org" target="_blank" rel="noreferrer" className="btn btn-secondary" event="docs_link_clicked" eventProps={{ source_page: "ai-skill" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
                 <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
               </svg>
               Read the Docs
-            </a>
+            </TrackedLink>
           </div>
         </div>
       </section>
@@ -101,7 +103,7 @@ export default function DevResourcesPage() {
           <div className="personas-label">What&apos;s Inside the Skill</div>
           <div className="personas-title">Where do you want to start?</div>
           <div className="personas-grid">
-            <a href="/buy-or-sell" className="persona-card">
+            <TrackedLink href="/buy-or-sell" className="persona-card" event="persona_selected" eventProps={{ persona: "buy-sell" }} style={{ textDecoration: "none", color: "inherit" }}>
               <div className="persona-icon ocean">⚓</div>
               <h3>Run a Node</h3>
               <div className="persona-quote">&quot;I want to join the network&quot;</div>
@@ -110,8 +112,8 @@ export default function DevResourcesPage() {
                 Get started
                 <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
               </div>
-            </a>
-            <a href="/build" className="persona-card">
+            </TrackedLink>
+            <TrackedLink href="/build" className="persona-card" event="persona_selected" eventProps={{ persona: "build" }} style={{ textDecoration: "none", color: "inherit" }}>
               <div className="persona-icon teal">⚙</div>
               <h3>Build Something</h3>
               <div className="persona-quote">&quot;I want to build on top of this&quot;</div>
@@ -120,8 +122,8 @@ export default function DevResourcesPage() {
                 Start building
                 <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
               </div>
-            </a>
-            <a href="/contribute" className="persona-card">
+            </TrackedLink>
+            <TrackedLink href="/contribute" className="persona-card" event="persona_selected" eventProps={{ persona: "contribute" }} style={{ textDecoration: "none", color: "inherit" }}>
               <div className="persona-icon terra">✳</div>
               <h3>Contribute</h3>
               <div className="persona-quote">&quot;I want to make this better&quot;</div>
@@ -130,7 +132,7 @@ export default function DevResourcesPage() {
                 Get involved
                 <svg viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
               </div>
-            </a>
+            </TrackedLink>
           </div>
         </div>
       </section>
@@ -139,16 +141,16 @@ export default function DevResourcesPage() {
       <section className="cta">
         <div className="container">
           <h2>Your Beacon is<br /><em>one download away.</em></h2>
-          <p>Drop <a href="/pelagora.md" download style={{ color: "var(--teal)", textDecoration: "none", fontWeight: 600 }}><code>pelagora.md</code></a> into your project and let your AI take it from there.</p>
+          <p>Drop <TrackedLink href="/pelagora.md" download style={{ color: "var(--teal)", textDecoration: "none", fontWeight: 600 }} event="skill_downloaded" eventProps={{ source_page: "ai-skill" }}><code>pelagora.md</code></TrackedLink> into your project and let your AI take it from there.</p>
           <div className="cta-actions">
-            <a href="/pelagora.md" download className="btn btn-primary">
+            <TrackedLink href="/pelagora.md" download className="btn btn-primary" event="skill_downloaded" eventProps={{ source_page: "ai-skill" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
                 <polyline points="7 10 12 15 17 10" />
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
               Download AI Skill
-            </a>
+            </TrackedLink>
             <a href="https://docs.pelagora.org" target="_blank" rel="noreferrer" className="btn btn-secondary">Read the Docs</a>
           </div>
           <div className="cta-links">
