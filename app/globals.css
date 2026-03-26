@@ -42,6 +42,7 @@ nav {
   font-weight: 600; font-size: 15px; color: var(--marble);
   letter-spacing: 0.18em; text-transform: uppercase;
 }
+.nav-brand:hover { opacity: 0.8; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a {
   color: #ffffffbd; text-decoration: none;

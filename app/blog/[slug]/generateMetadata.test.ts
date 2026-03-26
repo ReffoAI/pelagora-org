@@ -90,7 +90,7 @@ describe("generateMetadata — blog/[slug]", () => {
   // Fallback image — post exists but image_url is null
   // -------------------------------------------------------------------------
 
-  it("falls back to the homepage-crop image when post.image_url is null", async () => {
+  it("falls back to pelagora-og.jpg when post.image_url is null", async () => {
     process.env.NEXT_PUBLIC_SITE_URL = "https://pelagora.org";
 
     // Temporarily patch MOCK_POSTS[0] to have a null image_url.
@@ -101,7 +101,7 @@ describe("generateMetadata — blog/[slug]", () => {
 
     try {
       const result = await generateMetadata({ params: makeParams(post.slug) });
-      const expectedFallback = "https://pelagora.org/images/pelagora-app_homepage-crop.png";
+      const expectedFallback = "https://pelagora.org/images/pelagora-og.jpg";
       expect(result.openGraph!.images).toEqual([{ url: expectedFallback }]);
       expect(result.twitter!.images).toEqual([expectedFallback]);
     } finally {
@@ -122,7 +122,7 @@ describe("generateMetadata — blog/[slug]", () => {
     try {
       const result = await generateMetadata({ params: makeParams(post.slug) });
       expect(result.openGraph!.images).toEqual([
-        { url: "https://pelagora.org/images/pelagora-app_homepage-crop.png" },
+        { url: "https://pelagora.org/images/pelagora-og.jpg" },
       ]);
       expect(result.openGraph!.url).toContain("https://pelagora.org/blog/");
     } finally {

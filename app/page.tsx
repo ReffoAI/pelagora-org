@@ -12,7 +12,7 @@ export const metadata = {
       "Pelagora is a decentralized network where every node is a marketplace. Grab the Skill, hand it to your AI, and start building.",
     url: siteUrl,
     siteName: "Pelagora",
-    images: [{ url: `${siteUrl}/images/pelagora-octopus-hero_og.jpg` }],
+    images: [{ url: `${siteUrl}/images/pelagora-octopus-hero_og.jpg`, width: 1200, height: 630, alt: "Pelagora — The Open Source Commerce Network" }],
     type: "website",
   },
   twitter: {

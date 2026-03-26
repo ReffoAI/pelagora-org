@@ -68,7 +68,7 @@ describe("Root layout metadata", () => {
     assertOpenGraphShape(
       rootMetadata as unknown as Record<string, unknown>,
       "", // root url ends with nothing after the origin
-      "pelagora-app_homepage-crop.png"
+      "pelagora-og.jpg"
     );
   });
 
@@ -82,11 +82,11 @@ describe("Root layout metadata", () => {
 // ---------------------------------------------------------------------------
 
 describe("/build page metadata", () => {
-  it("uses bicycle-man.png as the og:image", () => {
+  it("uses bicycle-man_og.jpg as the og:image", () => {
     assertOpenGraphShape(
       buildMetadata as unknown as Record<string, unknown>,
       "/build",
-      "bicycle-man.png"
+      "bicycle-man_og.jpg"
     );
   });
 });
@@ -96,11 +96,11 @@ describe("/build page metadata", () => {
 // ---------------------------------------------------------------------------
 
 describe("/buy-or-sell page metadata", () => {
-  it("uses woman-clothes-shopping.png as the og:image", () => {
+  it("uses woman-clothes-shopping_og.jpg as the og:image", () => {
     assertOpenGraphShape(
       buyOrSellMetadata as unknown as Record<string, unknown>,
       "/buy-or-sell",
-      "woman-clothes-shopping.png"
+      "woman-clothes-shopping_og.jpg"
     );
   });
 });
@@ -110,11 +110,11 @@ describe("/buy-or-sell page metadata", () => {
 // ---------------------------------------------------------------------------
 
 describe("/contribute page metadata", () => {
-  it("uses helping.png as the og:image", () => {
+  it("uses helping_og.jpg as the og:image", () => {
     assertOpenGraphShape(
       contributeMetadata as unknown as Record<string, unknown>,
       "/contribute",
-      "helping.png"
+      "helping_og.jpg"
     );
   });
 });
@@ -124,11 +124,11 @@ describe("/contribute page metadata", () => {
 // ---------------------------------------------------------------------------
 
 describe("/ai-skill page metadata", () => {
-  it("uses woman-surfboards.png as the og:image", () => {
+  it("uses woman-surfboards_og.jpg as the og:image", () => {
     assertOpenGraphShape(
       aiSkillMetadata as unknown as Record<string, unknown>,
       "/ai-skill",
-      "woman-surfboards.png"
+      "woman-surfboards_og.jpg"
     );
   });
 });
@@ -138,11 +138,11 @@ describe("/ai-skill page metadata", () => {
 // ---------------------------------------------------------------------------
 
 describe("/brand page metadata", () => {
-  it("uses pelagora-octopus-hero.png as the og:image", () => {
+  it("uses pelagora-octopus-hero_og.jpg as the og:image", () => {
     assertOpenGraphShape(
       brandMetadata as unknown as Record<string, unknown>,
       "/brand",
-      "pelagora-octopus-hero.png"
+      "pelagora-octopus-hero_og.jpg"
     );
   });
 });
@@ -152,11 +152,11 @@ describe("/brand page metadata", () => {
 // ---------------------------------------------------------------------------
 
 describe("/blog list page metadata", () => {
-  it("uses the homepage-crop fallback image", () => {
+  it("uses pelagora-og.jpg as the og:image", () => {
     assertOpenGraphShape(
       blogListMetadata as unknown as Record<string, unknown>,
       "/blog",
-      "pelagora-app_homepage-crop.png"
+      "pelagora-og.jpg"
     );
   });
 
