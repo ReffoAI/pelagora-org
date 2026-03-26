@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { trackReffoCtaClicked } from "@/lib/analytics";
 
 export default function NotTechnical() {
   const [open, setOpen] = useState(false);
@@ -36,7 +37,7 @@ export default function NotTechnical() {
                 <strong style={{ color: "var(--ink)" }}>Reffo</strong> is a hosted app built on Pelagora. No setup, no terminal, no code.
                 Just sign up and start buying or selling.
               </p>
-              <a href="https://reffo.ai" target="_blank" rel="noreferrer" className="btn btn-primary" style={{ color: "var(--marble)" }}>
+              <a href="https://reffo.ai" target="_blank" rel="noreferrer" className="btn btn-primary" style={{ color: "var(--marble)" }} onClick={() => trackReffoCtaClicked("buy-or-sell")}>
                 Try Reffo instead
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />

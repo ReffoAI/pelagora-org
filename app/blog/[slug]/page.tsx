@@ -5,6 +5,7 @@ import { slugifyBlogTitle } from "@/lib/blog-slug";
 import { MOCK_POSTS } from "@/lib/mock-blog-posts";
 import { stripMarkdown } from "@/lib/strip-markdown";
 import ShareBar from "./ShareBar";
+import { PageTracker } from "@/components/PageTracker";
 
 type BlogPost = {
   id: string;
@@ -146,6 +147,7 @@ export default async function BlogDetailPage({
 
   return (
     <main>
+      <PageTracker event="blog_post_viewed" props={{ slug, title: post.title }} />
       {post.image_url && (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={post.image_url} alt="" className="post-hero-img" />

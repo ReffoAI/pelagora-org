@@ -1,3 +1,5 @@
+import { TrackedLink } from "@/components/TrackedLink";
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
 
 export const metadata = {
@@ -41,15 +43,15 @@ export default function BuildSomethingPage() {
             thought of yet.
           </p>
           <div className="hero-actions">
-            <a href="https://docs.pelagora.org/guides/building-skills" target="_blank" rel="noreferrer" className="btn btn-primary">
+            <TrackedLink href="https://docs.pelagora.org/guides/building-skills" target="_blank" rel="noreferrer" className="btn btn-primary" event="hero_cta_clicked" eventProps={{ page: "build", cta_label: "Skill-Building Guide", destination: "docs/guides/building-skills" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" /><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
               </svg>
               Skill-Building Guide
-            </a>
-            <a href="https://docs.pelagora.org/glossary/beacon/api-reference" target="_blank" rel="noreferrer" className="btn btn-secondary">
+            </TrackedLink>
+            <TrackedLink href="https://docs.pelagora.org/glossary/beacon/api-reference" target="_blank" rel="noreferrer" className="btn btn-secondary" event="docs_link_clicked" eventProps={{ source_page: "build", doc_section: "api-reference" }}>
               API Reference
-            </a>
+            </TrackedLink>
           </div>
         </div>
       </section>
@@ -244,21 +246,21 @@ export default function BuildSomethingPage() {
           <h2>Ready to build on<br /><em>the open sea?</em></h2>
           <p>Grab the Skill, hand it to your AI, and start building something new.</p>
           <div className="cta-actions">
-            <a href="/pelagora.md" download className="btn btn-primary">
+            <TrackedLink href="/pelagora.md" download className="btn btn-primary" event="skill_downloaded" eventProps={{ source_page: "build" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
                 <polyline points="7 10 12 15 17 10" />
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
               Download AI Skill
-            </a>
-            <a href="https://docs.pelagora.org" target="_blank" rel="noreferrer" className="btn btn-secondary">Read the Docs</a>
+            </TrackedLink>
+            <TrackedLink href="https://docs.pelagora.org" target="_blank" rel="noreferrer" className="btn btn-secondary" event="docs_link_clicked" eventProps={{ source_page: "build" }}>Read the Docs</TrackedLink>
           </div>
           <div className="cta-links">
-            <a href="https://github.com/ReffoAI" target="_blank" rel="noreferrer">
+            <TrackedLink href="https://github.com/ReffoAI" target="_blank" rel="noreferrer" event="github_clicked" eventProps={{ source_page: "build", destination: "org" }}>
               <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" /></svg>
               GitHub
-            </a>
+            </TrackedLink>
             <a href="/build">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 12l-8.5 8.5a2.12 2.12 0 01-3-3L12 9"/><path d="M17.64 15L22 10.64"/><path d="M20.91 11.7l-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.75l-2.25-2.25-.75.75c-.85 0-1.65-.33-2.25-.93L12.23 3.77c-.6-.6-1.4-.93-2.25-.93H9l3.25 3.25"/></svg>
               Build

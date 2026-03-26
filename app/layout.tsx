@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import NavLinks from "./NavLinks";
 import { Analytics } from "@vercel/analytics/react";
+import { TrackedLink } from "@/components/TrackedLink";
 import type { ReactNode } from "react";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
@@ -56,7 +57,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <span>Pelagora</span>
             </div>
             <p>Open source commerce for builders. &copy; 2026</p>
-            <p>Questions? Find us on <a href="https://discord.gg/CfBVrPAC" target="_blank" rel="noreferrer">Discord</a>, or reach out at <a href="mailto:hello@reffo.ai">hello@reffo.ai</a>.</p>
+            <p>Questions? Find us on <TrackedLink href="https://discord.gg/CfBVrPAC" target="_blank" rel="noreferrer" event="discord_clicked" eventProps={{ source_page: "footer" }}>Discord</TrackedLink>, or reach out at <a href="mailto:hello@reffo.ai">hello@reffo.ai</a>.</p>
           </div>
         </footer>
       </body>
