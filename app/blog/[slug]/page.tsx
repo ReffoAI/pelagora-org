@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import { createSupabaseClient } from "@/lib/supabase";
 import { slugifyBlogTitle } from "@/lib/blog-slug";
 import { MOCK_POSTS } from "@/lib/mock-blog-posts";
+import { stripMarkdown } from "@/lib/strip-markdown";
 import ShareBar from "./ShareBar";
 
 type BlogPost = {
@@ -11,6 +12,7 @@ type BlogPost = {
   slug: string | null;
   content: string;
   image_url: string | null;
+  og_image_url: string | null;
   published_at: string | null;
 };
 
@@ -39,7 +41,7 @@ async function getPostBySlug(slug: string): Promise<{ post: BlogPost | null; adj
 
   const { data: bySlug } = await supabase
     .from("pelagora_blog_posts")
-    .select("id,title,slug,content,image_url,published_at")
+    .select("id,title,slug,content,image_url,og_image_url,published_at")
     .eq("status", "published")
     .eq("slug", slug)
     .maybeSingle();
@@ -49,7 +51,7 @@ async function getPostBySlug(slug: string): Promise<{ post: BlogPost | null; adj
   if (!post) {
     const { data: all } = await supabase
       .from("pelagora_blog_posts")
-      .select("id,title,slug,content,image_url,published_at")
+      .select("id,title,slug,content,image_url,og_image_url,published_at")
       .eq("status", "published")
       .order("published_at", { ascending: false, nullsFirst: false });
     const match = (all || []).find((p) => slugifyBlogTitle(p.title) === slug);
@@ -75,6 +77,45 @@ async function getPostBySlug(slug: string): Promise<{ post: BlogPost | null; adj
     adjacent: {
       prev: prevPost ? { slug: prevPost.slug || slugifyBlogTitle(prevPost.title), title: prevPost.title } : null,
       next: nextPost ? { slug: nextPost.slug || slugifyBlogTitle(nextPost.title), title: nextPost.title } : null,
+    },
+  };
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const { post } = await getPostBySlug(slug);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
+  const fallbackImage = `${siteUrl}/images/pelagora-app_homepage-crop_og.jpg`;
+
+  if (!post) {
+    return { title: "Post Not Found — Pelagora Blog" };
+  }
+
+  const ogImage = post.og_image_url ?? post.image_url ?? fallbackImage;
+  const url = `${siteUrl}/blog/${slug}`;
+  const description = stripMarkdown(post.content).slice(0, 160);
+
+  return {
+    title: `${post.title} — Pelagora Blog`,
+    description,
+    openGraph: {
+      title: post.title,
+      description,
+      url,
+      siteName: "Pelagora",
+      images: [{ url: ogImage }],
+      type: "article",
+      ...(post.published_at ? { publishedTime: post.published_at } : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description,
+      images: [ogImage],
     },
   };
 }

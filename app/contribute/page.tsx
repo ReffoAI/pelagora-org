@@ -1,7 +1,23 @@
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
+
 export const metadata = {
   title: "Contribute — Pelagora",
   description:
     "Help build the open commerce network. Submit PRs, fix bugs, improve docs, and shape the future of Pelagora.",
+  openGraph: {
+    title: "Contribute — Pelagora",
+    description: "Help build the open commerce network. Submit PRs, fix bugs, improve docs, and shape the future of Pelagora.",
+    url: `${siteUrl}/contribute`,
+    siteName: "Pelagora",
+    images: [{ url: `${siteUrl}/images/helping_og.jpg` }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contribute — Pelagora",
+    description: "Help build the open commerce network. Submit PRs, fix bugs, improve docs, and shape the future of Pelagora.",
+    images: [`${siteUrl}/images/helping_og.jpg`],
+  },
 };
 
 export default function ContributePage() {

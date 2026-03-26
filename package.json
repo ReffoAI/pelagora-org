@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "next dev --port 3006",
     "build": "next build",
-    "start": "next start --port 3006"
+    "start": "next start --port 3006",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "og:generate": "bash scripts/generate-og-images.sh",
+    "og:check": "bash scripts/generate-og-images.sh --dry-run"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
@@ -19,6 +23,9 @@
     "@types/node": "^24.5.2",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "typescript": "^5.9.2"
+    "@vitest/coverage-v8": "^4.1.1",
+    "typescript": "^5.9.2",
+    "vite-tsconfig-paths": "^6.1.1",
+    "vitest": "^4.1.1"
   }
 }

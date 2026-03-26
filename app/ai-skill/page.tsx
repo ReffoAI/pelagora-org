@@ -1,7 +1,23 @@
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
+
 export const metadata = {
   title: "Get the Skill — Pelagora Developer Resources",
   description:
     "Download the Pelagora developer skill. Hand it to your AI agent and start building on the open commerce network.",
+  openGraph: {
+    title: "Get the Skill — Pelagora Developer Resources",
+    description: "Download the Pelagora developer skill. Hand it to your AI agent and start building on the open commerce network.",
+    url: `${siteUrl}/ai-skill`,
+    siteName: "Pelagora",
+    images: [{ url: `${siteUrl}/images/woman-surfboards_og.jpg` }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Get the Skill — Pelagora Developer Resources",
+    description: "Download the Pelagora developer skill. Hand it to your AI agent and start building on the open commerce network.",
+    images: [`${siteUrl}/images/woman-surfboards_og.jpg`],
+  },
 };
 
 export default function DevResourcesPage() {
