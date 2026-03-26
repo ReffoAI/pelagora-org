@@ -1,9 +1,25 @@
 import NotTechnical from "./NotTechnical";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
+
 export const metadata = {
   title: "Run a Beacon — Pelagora",
   description:
     "Three steps to listing your first item for sale on the Pelagora network. Scaffold a Beacon, connect to the mesh, and start trading.",
+  openGraph: {
+    title: "Run a Beacon — Pelagora",
+    description: "Three steps to listing your first item for sale on the Pelagora network. Scaffold a Beacon, connect to the mesh, and start trading.",
+    url: `${siteUrl}/buy-or-sell`,
+    siteName: "Pelagora",
+    images: [{ url: `${siteUrl}/images/woman-clothes-shopping_og.jpg` }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Run a Beacon — Pelagora",
+    description: "Three steps to listing your first item for sale on the Pelagora network. Scaffold a Beacon, connect to the mesh, and start trading.",
+    images: [`${siteUrl}/images/woman-clothes-shopping_og.jpg`],
+  },
 };
 
 export default function RunANodePage() {

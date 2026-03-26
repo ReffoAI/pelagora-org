@@ -1,9 +1,25 @@
 import styles from "./brand.module.css";
 import Image from "next/image";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
+
 export const metadata = {
   title: "Brand Guidelines v1.1 — Pelagora",
   description: "A living guide for how Pelagora looks, sounds, and feels across every touchpoint.",
+  openGraph: {
+    title: "Brand Guidelines v1.1 — Pelagora",
+    description: "A living guide for how Pelagora looks, sounds, and feels across every touchpoint.",
+    url: `${siteUrl}/brand`,
+    siteName: "Pelagora",
+    images: [{ url: `${siteUrl}/images/pelagora-octopus-hero_og.jpg` }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Brand Guidelines v1.1 — Pelagora",
+    description: "A living guide for how Pelagora looks, sounds, and feels across every touchpoint.",
+    images: [`${siteUrl}/images/pelagora-octopus-hero_og.jpg`],
+  },
 };
 
 export default function BrandPage() {

@@ -1,7 +1,23 @@
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
+
 export const metadata = {
   title: "Build Something — Pelagora",
   description:
     "Build commerce apps, Skills, and integrations on the Pelagora network. Rental platforms, reverse auctions, group buys, or something entirely new.",
+  openGraph: {
+    title: "Build Something — Pelagora",
+    description: "Build commerce apps, Skills, and integrations on the Pelagora network. Rental platforms, reverse auctions, group buys, or something entirely new.",
+    url: `${siteUrl}/build`,
+    siteName: "Pelagora",
+    images: [{ url: `${siteUrl}/images/bicycle-man_og.jpg` }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Build Something — Pelagora",
+    description: "Build commerce apps, Skills, and integrations on the Pelagora network. Rental platforms, reverse auctions, group buys, or something entirely new.",
+    images: [`${siteUrl}/images/bicycle-man_og.jpg`],
+  },
 };
 
 export default function BuildSomethingPage() {

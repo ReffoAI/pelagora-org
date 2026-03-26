@@ -2,6 +2,28 @@ import Link from "next/link";
 import { createSupabaseClient } from "@/lib/supabase";
 import { slugifyBlogTitle } from "@/lib/blog-slug";
 import { MOCK_POSTS } from "@/lib/mock-blog-posts";
+import { stripMarkdown } from "@/lib/strip-markdown";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
+
+export const metadata = {
+  title: "Pelagora Blog",
+  description: "Announcements, tutorials, and ideas from the Pelagora community.",
+  openGraph: {
+    title: "Pelagora Blog",
+    description: "Announcements, tutorials, and ideas from the Pelagora community.",
+    url: `${siteUrl}/blog`,
+    siteName: "Pelagora",
+    images: [{ url: `${siteUrl}/images/pelagora-app_homepage-crop_og.jpg` }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pelagora Blog",
+    description: "Announcements, tutorials, and ideas from the Pelagora community.",
+    images: [`${siteUrl}/images/pelagora-app_homepage-crop_og.jpg`],
+  },
+};
 
 type BlogPost = {
   id: string;
@@ -27,21 +49,6 @@ async function getPublishedPosts(): Promise<BlogPost[]> {
   return (data || []) as BlogPost[];
 }
 
-function stripMarkdown(md: string): string {
-  return md
-    .replace(/^#{1,6}\s+/gm, "")         // headings
-    .replace(/\*\*(.+?)\*\*/g, "$1")      // bold
-    .replace(/\*(.+?)\*/g, "$1")          // italic
-    .replace(/`{1,3}[^`]*`{1,3}/g, "")   // inline code and fenced blocks
-    .replace(/```[\s\S]*?```/gm, "")      // fenced code blocks
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // links → just text
-    .replace(/^[>\-*+]\s+/gm, "")        // blockquotes, list markers
-    .replace(/^\d+\.\s+/gm, "")          // numbered lists
-    .replace(/\|[^\n]+\|/g, "")          // table rows
-    .replace(/[-|]{3,}/g, "")            // table separators
-    .replace(/\s+/g, " ")
-    .trim();
-}
 
 export default async function BlogListPage() {
   const posts = await getPublishedPosts();
