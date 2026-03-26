@@ -3,23 +3,23 @@ import { TrackedLink } from "@/components/TrackedLink";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
 
 export const metadata = {
-  title: "Pelagora — The Open Source Commerce Network",
+  title: "Pelagora — Decentralized Commerce, Built by You",
   description:
-    "Pelagora is a decentralized network where every node is a marketplace. Grab the Skill, hand it to your AI, and start building.",
+    "Every node is a marketplace. Grab the AI Skill, spin up a Beacon, and start building on the open source network.",
   openGraph: {
-    title: "Pelagora — The Open Source Commerce Network",
+    title: "Pelagora — Decentralized Commerce, Built by You",
     description:
-      "Pelagora is a decentralized network where every node is a marketplace. Grab the Skill, hand it to your AI, and start building.",
+      "Every node is a marketplace. Grab the AI Skill, spin up a Beacon, and start building on the open source network.",
     url: siteUrl,
     siteName: "Pelagora",
-    images: [{ url: `${siteUrl}/images/pelagora-og.jpg`, width: 1300, height: 682, alt: "Pelagora — The Open Source Commerce Network" }],
+    images: [{ url: `${siteUrl}/images/pelagora-og.jpg`, width: 1300, height: 682, alt: "Pelagora — Decentralized Commerce, Built by You" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image" as const,
-    title: "Pelagora — The Open Source Commerce Network",
+    title: "Pelagora — Decentralized Commerce, Built by You",
     description:
-      "Pelagora is a decentralized network where every node is a marketplace. Grab the Skill, hand it to your AI, and start building.",
+      "Every node is a marketplace. Grab the AI Skill, spin up a Beacon, and start building on the open source network.",
     images: [`${siteUrl}/images/pelagora-og.jpg`],
   },
 };

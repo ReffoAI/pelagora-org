@@ -73,7 +73,7 @@ describe("Root layout metadata", () => {
   });
 
   it("has the expected title", () => {
-    expect(rootMetadata.title).toBe("Pelagora — The Open Source Commerce Network");
+    expect(rootMetadata.title).toBe("Pelagora — Decentralized Commerce, Built by You");
   });
 });
 
