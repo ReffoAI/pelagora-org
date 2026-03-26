@@ -89,7 +89,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const { post } = await getPostBySlug(slug);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
-  const fallbackImage = `${siteUrl}/images/pelagora-app_homepage-crop_og.jpg`;
+  const fallbackImage = `${siteUrl}/images/pelagora-og.jpg`;
 
   if (!post) {
     return { title: "Post Not Found — Pelagora Blog" };

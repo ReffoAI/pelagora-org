@@ -14,14 +14,14 @@ export const metadata = {
     description: "Announcements, tutorials, and ideas from the Pelagora community.",
     url: `${siteUrl}/blog`,
     siteName: "Pelagora",
-    images: [{ url: `${siteUrl}/images/pelagora-app_homepage-crop_og.jpg` }],
+    images: [{ url: `${siteUrl}/images/pelagora-og.jpg` }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Pelagora Blog",
     description: "Announcements, tutorials, and ideas from the Pelagora community.",
-    images: [`${siteUrl}/images/pelagora-app_homepage-crop_og.jpg`],
+    images: [`${siteUrl}/images/pelagora-og.jpg`],
   },
 };
 
