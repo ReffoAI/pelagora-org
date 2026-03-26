@@ -9,21 +9,22 @@ import type { ReactNode } from "react";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
 
 export const metadata = {
-  title: "Pelagora — The Open Source Commerce Network",
-  description: "Build commerce apps on a decentralized network. Grab the Skill, spin up a Beacon, start building.",
+  metadataBase: new URL(siteUrl),
+  title: "Pelagora — Decentralized Commerce, Built by You",
+  description: "Every node is a marketplace. Grab the AI Skill, spin up a Beacon, and start building on the open source network.",
   icons: { icon: "/l_favicon.ico" },
   openGraph: {
-    title: "Pelagora — The Open Source Commerce Network",
-    description: "Build commerce apps on a decentralized network. Grab the Skill, spin up a Beacon, start building.",
+    title: "Pelagora — Decentralized Commerce, Built by You",
+    description: "Every node is a marketplace. Grab the AI Skill, spin up a Beacon, and start building on the open source network.",
     url: siteUrl,
     siteName: "Pelagora",
-    images: [{ url: `${siteUrl}/images/pelagora-og.jpg` }],
+    images: [{ url: `${siteUrl}/images/pelagora-og.jpg`, width: 1300, height: 682, alt: "Pelagora — Decentralized Commerce, Built by You" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pelagora — The Open Source Commerce Network",
-    description: "Build commerce apps on a decentralized network. Grab the Skill, spin up a Beacon, start building.",
+    title: "Pelagora — Decentralized Commerce, Built by You",
+    description: "Every node is a marketplace. Grab the AI Skill, spin up a Beacon, and start building on the open source network.",
     images: [`${siteUrl}/images/pelagora-og.jpg`],
   },
 };
@@ -42,7 +43,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <nav>
           <div className="nav-inner">
             <Link href="/" className="nav-brand">
-              <Image src="/images/pelagora-logo_reverse_sm.png" alt="Pelagora" width={30} height={30} style={{ height: 30, width: "auto" }} />
+              <Image src="/images/pelagora-logo_reverse_sm.png" alt="Pelagora" width={30} height={30} priority style={{ height: 30, width: "auto" }} />
               <span>PELAGORA</span>
             </Link>
             <NavLinks />
