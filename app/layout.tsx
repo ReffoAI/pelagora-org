@@ -16,14 +16,14 @@ export const metadata = {
     description: "Build commerce apps on a decentralized network. Grab the Skill, spin up a Beacon, start building.",
     url: siteUrl,
     siteName: "Pelagora",
-    images: [{ url: `${siteUrl}/images/pelagora-app_homepage-crop_og.jpg` }],
+    images: [{ url: `${siteUrl}/images/pelagora-og.jpg` }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Pelagora — The Open Source Commerce Network",
     description: "Build commerce apps on a decentralized network. Grab the Skill, spin up a Beacon, start building.",
-    images: [`${siteUrl}/images/pelagora-app_homepage-crop_og.jpg`],
+    images: [`${siteUrl}/images/pelagora-og.jpg`],
   },
 };
 
