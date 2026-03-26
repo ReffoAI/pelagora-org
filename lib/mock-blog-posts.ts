@@ -4,6 +4,7 @@ export type MockPost = {
   slug: string;
   content: string;
   image_url: string | null;
+  og_image_url: string | null;
   published_at: string;
 };
 
@@ -12,6 +13,7 @@ export const MOCK_POSTS: MockPost[] = [
     id: "sample-published-1",
     title: "Building your first Beacon node in 10 minutes",
     slug: "building-your-first-beacon-node-10-minutes",
+    og_image_url: null,
     image_url: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=80",
     published_at: new Date(Date.now() - 1000 * 60 * 60 * 24 * 2).toISOString(),
     content: `## What is a Beacon?
@@ -67,6 +69,7 @@ The Beacon returns a \`ref_id\` and immediately broadcasts it to peers. Anyone b
     id: "sample-published-2",
     title: "How DHT peer discovery works in Pelagora",
     slug: "how-dht-peer-discovery-works-pelagora",
+    og_image_url: null,
     image_url: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80",
     published_at: new Date(Date.now() - 1000 * 60 * 60 * 24 * 9).toISOString(),
     content: `## The problem with centralized marketplaces
@@ -125,6 +128,7 @@ Your IP address is visible to peers you connect with — the same trade-off as a
     id: "sample-published-3",
     title: "Writing your first Pelagora Skill",
     slug: "writing-your-first-pelagora-skill",
+    og_image_url: null,
     image_url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80",
     published_at: new Date(Date.now() - 1000 * 60 * 60 * 24 * 21).toISOString(),
     content: `## What is a Skill?
@@ -214,6 +218,7 @@ curl https://skills.pelagora.org/reverse-auction.md > reverse-auction.md
     id: "sample-published-4",
     title: "Pelagora 0.9 — mesh upgrades and Schema.org improvements",
     slug: "pelagora-0-9-mesh-upgrades-schema-org-improvements",
+    og_image_url: null,
     image_url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80",
     published_at: new Date(Date.now() - 1000 * 60 * 60 * 24 * 35).toISOString(),
     content: `## Release summary
