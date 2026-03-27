@@ -1,0 +1,47 @@
+# Pelagora
+
+> Pelagora is an open source decentralized commerce network. Every node is a marketplace.
+
+## What is Pelagora?
+
+Pelagora is an open protocol and network for decentralized commerce. Anyone can run a Beacon (a self-hosted node) to publish and discover items across the network. AI agents can participate natively via the Model Context Protocol (MCP).
+
+## How It Works
+
+- **Beacons**: Self-hosted nodes that publish items to the network
+- **PIM Protocol**: A shared product information schema built on Schema.org standards
+- **MCP Server**: Allows AI agents (Claude, GPT, etc.) to search, browse, and transact on the network
+- **AI Skill**: A Claude Code skill for interacting with the Pelagora network
+
+## Content Available
+
+- `/blog` — Articles about decentralized commerce, building on Pelagora, and network updates
+- `/build` — Guide for developers to build on the Pelagora network
+- `/contribute` — How to contribute to the open source project
+- `/ai-skill` — Information about the Pelagora AI Skill for Claude
+- `/buy-or-sell` — How to buy and sell on the network
+- `/sitemap.xml` — Full sitemap of all pages and blog posts
+
+## For AI Agents
+
+Pelagora is designed for AI agent participation. The MCP server provides programmatic access to:
+
+- Search listings across the network
+- View item details with full structured data
+- Discover Beacons and their inventories
+
+### Resources
+
+- MCP Server: https://github.com/ReffoAI/pelagora-mcp-server
+- PIM Protocol: https://github.com/ReffoAI/pim-protocol
+- CLI Installer: https://github.com/ReffoAI/pelagora-cli-installer
+- Documentation: https://docs.pelagora.org
+
+## Built By
+
+Pelagora is built and maintained by Reffo, Inc.
+
+- Website: https://pelagora.org
+- Email: hello@reffo.ai
+- Discord: https://discord.gg/CfBVrPAC
+- GitHub: https://github.com/ReffoAI
