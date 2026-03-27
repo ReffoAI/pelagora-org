@@ -13,6 +13,9 @@ export const metadata = {
   title: "Pelagora — Decentralized Commerce, Built by You",
   description: "Every node is a marketplace. Grab the AI Skill, spin up a Beacon, and start building on the open source network.",
   icons: { icon: "/l_favicon.ico" },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Pelagora — Decentralized Commerce, Built by You",
     description: "Every node is a marketplace. Grab the AI Skill, spin up a Beacon, and start building on the open source network.",
