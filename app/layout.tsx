@@ -12,7 +12,12 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
   title: "Pelagora — Decentralized Commerce, Built by You",
   description: "Every node is a marketplace. Grab the AI Skill, spin up a Beacon, and start building on the open source network.",
-  icons: { icon: "/l_favicon.ico" },
+  icons: {
+    icon: [
+      { url: "/l_favicon.ico", media: "(prefers-color-scheme: light)" },
+      { url: "/d_favicon.ico", media: "(prefers-color-scheme: dark)" },
+    ],
+  },
   alternates: {
     canonical: "/",
   },
