@@ -1,0 +1,13 @@
+.agoraImg {
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.55;
+  z-index: 0;
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-mask-image: linear-gradient(to left, #0000 0%, #000 80%);
+  mask-image: linear-gradient(to left, #0000 0%, #000 80%);
+}
