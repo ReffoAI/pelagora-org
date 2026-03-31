@@ -75,7 +75,7 @@ export default async function BlogListPage() {
               return (
                 <article key={post.id} className="post-card">
                   {post.image_url && (
-                    <Link href={`/blog/${slug}`} inert="">
+                    <Link href={`/blog/${slug}`} tabIndex={-1}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={post.image_url} alt="" className="post-card-img" />
                     </Link>
