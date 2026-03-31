@@ -17,7 +17,6 @@ body {
   font-size: 17px; line-height: 1.6;
   color: var(--ink); background: var(--marble);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 a { color: inherit; }
@@ -589,8 +588,7 @@ footer p { font-size: 13px; color: #ffffffbd; }
     display: block;
     margin-bottom: 48px;
   }
-  .hero { overflow: visible; }
-  .hero:has(.hero-side-img) { padding-top: 0; padding-bottom: 60px; }
+  .hero:has(.hero-side-img) { overflow: visible; padding-top: 0; padding-bottom: 60px; }
 }
 
 
