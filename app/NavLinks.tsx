@@ -4,11 +4,11 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
-  { href: "/about", label: "About" },
   { href: "/buy-or-sell", label: "Buy or Sell" },
   { href: "/build", label: "Build" },
   { href: "/contribute", label: "Contribute" },
   { href: "/blog", label: "Pelagora Blog" },
+  { href: "/about", label: "About" },
 ];
 
 export default function NavLinks() {
