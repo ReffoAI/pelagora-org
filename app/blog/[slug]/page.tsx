@@ -161,16 +161,16 @@ export default async function BlogDetailPage({
         <div className="container">
           <div className="post-detail-layout">
             <div className="post-content">
-              <Link href="/blog" className="post-back">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
-                  <path d="M19 12H5" /><path d="M12 19l-7-7 7-7" />
-                </svg>
-                Back to Blog
-              </Link>
-              <div className="post-meta">
-                <h1>{post.title}</h1>
-                <time>Published on: {post.published_at ? new Date(post.published_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : "Unpublished"}</time>
+              <div className="post-topbar">
+                <Link href="/blog" className="post-back">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
+                    <path d="M19 12H5" /><path d="M12 19l-7-7 7-7" />
+                  </svg>
+                  Back to Blog
+                </Link>
+                <time className="post-published-date">Published on: {post.published_at ? new Date(post.published_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : "Unpublished"}</time>
               </div>
+              <h1>{post.title}</h1>
               <ShareBar title={post.title} variant="inline" />
               <article className="prose">
                 <ReactMarkdown>{post.content}</ReactMarkdown>
