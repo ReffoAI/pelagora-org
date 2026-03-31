@@ -168,9 +168,9 @@ export default async function BlogDetailPage({
                 Back to Blog
               </Link>
               <div className="post-meta">
-                <time>{post.published_at ? new Date(post.published_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : "Unpublished"}</time>
+                <h1>{post.title}</h1>
+                <time>Published on: {post.published_at ? new Date(post.published_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : "Unpublished"}</time>
               </div>
-              <h1>{post.title}</h1>
               <ShareBar title={post.title} variant="inline" />
               <article className="prose">
                 <ReactMarkdown>{post.content}</ReactMarkdown>
