@@ -7,6 +7,8 @@ import { stripMarkdown } from "@/lib/strip-markdown";
 import ShareBar from "./ShareBar";
 import { PageTracker } from "@/components/PageTracker";
 
+export const revalidate = 300; // re-fetch every 5 minutes
+
 type BlogPost = {
   id: string;
   title: string;
