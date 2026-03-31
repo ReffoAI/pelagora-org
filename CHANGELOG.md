@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Blog post structured data via JSON-LD `BlogPosting` schema for improved SEO rich results (headline, author, publisher, dates, wordCount)
 - Open Graph and Twitter Card metadata on all pages; shared links now render rich previews on social platforms and messaging apps
 - Static pages (Build, Buy or Sell, Contribute, AI Skill, Brand, Blog index) use their hero image as og:image
 - Blog post detail pages use post.image_url for og:image, with fallback to pelagora-app_homepage-crop.png
