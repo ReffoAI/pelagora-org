@@ -48,6 +48,29 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Pelagora",
+              url: siteUrl,
+              logo: `${siteUrl}/images/pelagora-og.jpg`,
+              description:
+                "Open source decentralized commerce network. Every node is a marketplace.",
+              sameAs: [
+                "https://github.com/PelagoraAI",
+                "https://discord.gg/CfBVrPAC",
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                email: "hello@reffo.ai",
+                contactType: "customer support",
+              },
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
         <nav>
           <div className="nav-inner">
             <Link href="/" className="nav-brand">
