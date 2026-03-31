@@ -51,7 +51,10 @@ export function BlogPostingJsonLd({
           dateModified: post.published_at,
         }
       : {}),
-    description: plainText.slice(0, 160),
+    description:
+      plainText.length <= 160
+        ? plainText
+        : plainText.slice(0, 160).replace(/\s+\S*$/, "…"),
   };
 
   return (

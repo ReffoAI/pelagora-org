@@ -173,11 +173,14 @@ describe("BlogPostingJsonLd", () => {
   // Description
   // -------------------------------------------------------------------------
 
-  it("truncates the description to 160 characters", () => {
+  it("truncates the description at a word boundary with ellipsis", () => {
     const longContent = "word ".repeat(200); // 1000 chars
     const post = makePost({ content: longContent });
     const ld = getJsonLd(post);
-    expect((ld.description as string).length).toBeLessThanOrEqual(160);
+    const desc = ld.description as string;
+    expect(desc.length).toBeLessThanOrEqual(160);
+    expect(desc).toMatch(/…$/);
+    expect(desc).not.toMatch(/\s…$/);
   });
 
   // -------------------------------------------------------------------------
