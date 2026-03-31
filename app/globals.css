@@ -373,12 +373,12 @@ footer p { font-size: 13px; color: #ffffffbd; }
 }
 .share-btn:hover { background: var(--ink); color: var(--marble); transform: scale(1.08); }
 .share-btn.copied { background: var(--teal); color: var(--marble); }
-.post-back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--teal); text-decoration: none; margin-bottom: 32px; transition: gap 0.2s; }
+.post-back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--teal); text-decoration: none; transition: gap 0.2s; }
 .post-back:hover { gap: 10px; }
 .post-back svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.post-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
-.post-meta h1 { font-family: 'Fira Sans', sans-serif; font-size: clamp(28px, 5.5vw, 54px); font-weight: 700; line-height: 1.15; color: var(--ink); margin: 0; word-break: break-word; overflow-wrap: break-word; flex: 1 1 0; }
-.post-meta time { font-size: 13px; font-weight: 600; color: var(--teal); letter-spacing: 0.06em; white-space: nowrap; flex-shrink: 0; }
+.post-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.post-published-date { font-size: 13px; font-weight: 600; color: var(--teal); letter-spacing: 0.06em; white-space: nowrap; }
+.post-detail h1 { font-family: 'Fira Sans', sans-serif; font-size: clamp(28px, 5.5vw, 54px); font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 24px; word-break: break-word; overflow-wrap: break-word; }
 .prose { line-height: 1.75; color: var(--ink); font-size: 17px; overflow-wrap: break-word; word-break: break-word; }
 .prose h1, .prose h2, .prose h3 { font-family: 'Fira Sans', sans-serif; font-weight: 700; color: var(--ink); margin: 1.6em 0 0.5em; line-height: 1.2; }
 .prose h1 { font-size: 32px; }
