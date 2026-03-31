@@ -6,6 +6,7 @@ import { MOCK_POSTS } from "@/lib/mock-blog-posts";
 import { stripMarkdown } from "@/lib/strip-markdown";
 import ShareBar from "./ShareBar";
 import { PageTracker } from "@/components/PageTracker";
+import { BlogPostingJsonLd } from "./BlogPostingJsonLd";
 
 export const revalidate = 300; // re-fetch every 5 minutes
 
@@ -150,8 +151,11 @@ export default async function BlogDetailPage({
     );
   }
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
+
   return (
     <main>
+      <BlogPostingJsonLd post={post} siteUrl={siteUrl} />
       <PageTracker event="blog_post_viewed" props={{ slug, title: post.title }} />
       {post.image_url && (
         // eslint-disable-next-line @next/next/no-img-element
