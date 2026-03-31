@@ -4,6 +4,8 @@ import { slugifyBlogTitle } from "@/lib/blog-slug";
 import { MOCK_POSTS } from "@/lib/mock-blog-posts";
 import { stripMarkdown } from "@/lib/strip-markdown";
 
+export const revalidate = 300; // re-fetch every 5 minutes (matches cron interval)
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
 
 export const metadata = {
