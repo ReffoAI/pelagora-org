@@ -203,7 +203,24 @@ export default function RunANodePage() {
                 <div className="terminal-title">terminal</div>
               </div>
               <div className="terminal-body">
-                <div className="terminal-line"><span className="prompt-symbol">&gt; </span><span className="cmd">/beacon-list-item I want to list a board game for sale on my beacon. I have a like-new copy of Balderdash. I&apos;d sell it for $10.</span></div>
+                <div className="terminal-line"><span className="prompt-symbol">&gt; </span><span className="cmd">/pelagora I want to list a board game for sale on my beacon. I have a like-new copy of Balderdash. I&apos;d sell it for $10.</span></div>
+                <div className="terminal-line"><span className="output">──────────</span></div>
+                <div className="terminal-line"><span className="prompt-symbol">$ </span><span className="cmd">{'curl -s -X POST http://localhost:8888/refs \\'}</span></div>
+                <div className="terminal-line"><span className="cmd">{'    -H "Content-Type: application/json" \\'}</span></div>
+                <div className="terminal-line"><span className="cmd">{"    -d '{"}</span></div>
+                <div className="terminal-line"><span className="cmd">{'      "name": "'}<span className="highlight">Balderdash Board Game</span>{'",'}
+                </span></div>
+                <div className="terminal-line"><span className="cmd">{'      "description": "Like-new copy of Balderdash. Complete with all pieces and cards.",'}
+                </span></div>
+                <div className="terminal-line"><span className="cmd">{'      "category": "'}<span className="highlight">Toys &amp; Hobbies</span>{'",'}
+                </span></div>
+                <div className="terminal-line"><span className="cmd">{'      "subcategory": "Board Games & Puzzles",'}
+                </span></div>
+                <div className="terminal-line"><span className="cmd">{'      "condition": "like_new",'}
+                </span></div>
+                <div className="terminal-line"><span className="cmd">{"      \"listingStatus\": \"for_sale\""}
+                </span></div>
+                <div className="terminal-line"><span className="cmd">{"    }'"}</span></div>
               </div>
             </div>
             <p style={{ marginTop: 32 }}>That&apos;s it. Your item is now visible to anyone searching the Pelagora network. You can also do this through:</p>
