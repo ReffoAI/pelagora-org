@@ -45,7 +45,7 @@ export default function DevResourcesPage() {
             you connected, building, or contributing.
           </p>
           <div className="hero-actions">
-            <TrackedLink href="/pelagora.md" download className="btn btn-primary" event="skill_downloaded" eventProps={{ source_page: "ai-skill" }}>
+            <TrackedLink href="/SKILL.md" download className="btn btn-primary" event="skill_downloaded" eventProps={{ source_page: "ai-skill" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
                 <polyline points="7 10 12 15 17 10" />
@@ -115,9 +115,9 @@ export default function DevResourcesPage() {
       <section className="cta">
         <div className="container">
           <h2>Your Beacon is<br /><em>one download away.</em></h2>
-          <p>Drop <TrackedLink href="/pelagora.md" download style={{ color: "var(--teal)", textDecoration: "none", fontWeight: 600 }} event="skill_downloaded" eventProps={{ source_page: "ai-skill" }}><code>pelagora.md</code></TrackedLink> into your project and let your AI take it from there.</p>
+          <p>Drop <TrackedLink href="/SKILL.md" download style={{ color: "var(--teal)", textDecoration: "none", fontWeight: 600 }} event="skill_downloaded" eventProps={{ source_page: "ai-skill" }}><code>SKILL.md</code></TrackedLink> into your project and let your AI take it from there.</p>
           <div className="cta-actions">
-            <TrackedLink href="/pelagora.md" download className="btn btn-primary" event="skill_downloaded" eventProps={{ source_page: "ai-skill" }}>
+            <TrackedLink href="/SKILL.md" download className="btn btn-primary" event="skill_downloaded" eventProps={{ source_page: "ai-skill" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
                 <polyline points="7 10 12 15 17 10" />

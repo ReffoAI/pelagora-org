@@ -45,7 +45,7 @@ export default function RunANodePage() {
             will have you connected and selling in minutes.
           </p>
           <div className="hero-actions">
-            <TrackedLink href="/pelagora.md" download className="btn btn-primary" event="skill_downloaded" eventProps={{ source_page: "buy-or-sell" }}>
+            <TrackedLink href="/SKILL.md" download className="btn btn-primary" event="skill_downloaded" eventProps={{ source_page: "buy-or-sell" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
                 <polyline points="7 10 12 15 17 10" />
@@ -140,7 +140,7 @@ export default function RunANodePage() {
               <li><strong>uploads/</strong> directory for item photos and media</li>
             </ul>
             <div className="callout">
-              <p><strong>Using the Pelagora Skill?</strong> Just tell your AI agent &quot;Use the pelagora.md skill to help me create a beacon on the Pelagora network&quot; and it will run the installer for you, choosing sensible defaults.</p>
+              <p><strong>Using the Pelagora Skill?</strong> Just tell your AI agent &quot;Use the Pelagora skill to help me create a beacon on the Pelagora network&quot; and it will run the installer for you, choosing sensible defaults.</p>
             </div>
           </div>
         </div>
@@ -269,7 +269,7 @@ export default function RunANodePage() {
           <h2>Ready to build on<br /><em>the open sea?</em></h2>
           <p>Grab the Skill, hand it to your AI, and have a Beacon running in minutes.</p>
           <div className="cta-actions">
-            <TrackedLink href="/pelagora.md" download className="btn btn-primary" event="skill_downloaded" eventProps={{ source_page: "buy-or-sell" }}>
+            <TrackedLink href="/SKILL.md" download className="btn btn-primary" event="skill_downloaded" eventProps={{ source_page: "buy-or-sell" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
                 <polyline points="7 10 12 15 17 10" />

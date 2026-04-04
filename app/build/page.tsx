@@ -246,7 +246,7 @@ export default function BuildSomethingPage() {
           <h2>Ready to build on<br /><em>the open sea?</em></h2>
           <p>Grab the Skill, hand it to your AI, and start building something new.</p>
           <div className="cta-actions">
-            <TrackedLink href="/pelagora.md" download className="btn btn-primary" event="skill_downloaded" eventProps={{ source_page: "build" }}>
+            <TrackedLink href="/SKILL.md" download className="btn btn-primary" event="skill_downloaded" eventProps={{ source_page: "build" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
                 <polyline points="7 10 12 15 17 10" />

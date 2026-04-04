@@ -3,28 +3,81 @@
 import { useState } from "react";
 
 type OS = "mac" | "windows";
+type Agent = "claude" | "cursor" | "windsurf" | "copilot";
 
-const macCommands = [
-  { type: "comment", text: "# Move the skill into place" },
-  { type: "cmd", text: "mkdir -p ~/.claude/skills && cp ~/Downloads/pelagora.md ~/.claude/skills/" },
-  { type: "cmd", text: "source ~/.zshrc" },
-  { type: "blank" },
-  { type: "comment", text: "# Ask your AI agent" },
-  { type: "ai-prompt", text: '"Use the pelagora.md skill to help me create a beacon on the Pelagora network"' },
+const agents: { id: Agent; label: string }[] = [
+  { id: "claude", label: "Claude Code" },
+  { id: "cursor", label: "Cursor" },
+  { id: "windsurf", label: "Windsurf" },
+  { id: "copilot", label: "Copilot" },
 ];
 
-const windowsCommands = [
-  { type: "comment", text: "# Move the skill into place" },
-  { type: "cmd", text: 'New-Item -ItemType Directory -Path "$env:USERPROFILE\\.claude\\skills" -Force | Out-Null' },
-  { type: "cmd", text: 'Copy-Item "$env:USERPROFILE\\Downloads\\pelagora.md" "$env:USERPROFILE\\.claude\\skills"' },
-  { type: "blank" },
-  { type: "comment", text: "# Ask your AI agent" },
-  { type: "ai-prompt", text: '"Use the pelagora.md skill to help me create a beacon on the Pelagora network"' },
-];
+function getCommands(agent: Agent, os: OS) {
+  const paths: Record<Agent, { mac: string[]; windows: string[] }> = {
+    claude: {
+      mac: [
+        "mkdir -p ~/.claude/skills/pelagora && cp ~/Downloads/SKILL.md ~/.claude/skills/pelagora/SKILL.md",
+      ],
+      windows: [
+        'New-Item -ItemType Directory -Path "$env:USERPROFILE\\.claude\\skills\\pelagora" -Force | Out-Null',
+        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" "$env:USERPROFILE\\.claude\\skills\\pelagora\\SKILL.md"',
+      ],
+    },
+    cursor: {
+      mac: [
+        "mkdir -p .cursor/rules/pelagora && cp ~/Downloads/SKILL.md .cursor/rules/pelagora/SKILL.md",
+      ],
+      windows: [
+        'New-Item -ItemType Directory -Path ".cursor\\rules\\pelagora" -Force | Out-Null',
+        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" ".cursor\\rules\\pelagora\\SKILL.md"',
+      ],
+    },
+    windsurf: {
+      mac: [
+        "mkdir -p .windsurf/rules/pelagora && cp ~/Downloads/SKILL.md .windsurf/rules/pelagora/SKILL.md",
+      ],
+      windows: [
+        'New-Item -ItemType Directory -Path ".windsurf\\rules\\pelagora" -Force | Out-Null',
+        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" ".windsurf\\rules\\pelagora\\SKILL.md"',
+      ],
+    },
+    copilot: {
+      mac: [
+        "mkdir -p .github/instructions && cp ~/Downloads/SKILL.md .github/instructions/pelagora.instructions.md",
+      ],
+      windows: [
+        'New-Item -ItemType Directory -Path ".github\\instructions" -Force | Out-Null',
+        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" ".github\\instructions\\pelagora.instructions.md"',
+      ],
+    },
+  };
+
+  const cmds = paths[agent][os];
+  const prompt =
+    '"Use the Pelagora skill to help me create a beacon on the Pelagora network"';
+
+  return [
+    { type: "comment" as const, text: "# Move the skill into place" },
+    ...cmds.map((text) => ({ type: "cmd" as const, text })),
+    { type: "blank" as const, text: "" },
+    { type: "comment" as const, text: "# Ask your AI agent" },
+    { type: "ai-prompt" as const, text: prompt },
+  ];
+}
+
+function agentNote(agent: Agent): string | null {
+  if (agent === "cursor" || agent === "windsurf")
+    return "Run this from your project root. Cursor and Windsurf use project-level rules.";
+  if (agent === "copilot")
+    return "Run this from your project root. Copilot uses project-level instruction files.";
+  return null;
+}
 
 export function SkillTerminal() {
   const [os, setOs] = useState<OS>("mac");
-  const commands = os === "mac" ? macCommands : windowsCommands;
+  const [agent, setAgent] = useState<Agent>("claude");
+  const commands = getCommands(agent, os);
+  const note = agentNote(agent);
 
   return (
     <div className="skill-band-header">
@@ -36,7 +89,7 @@ export function SkillTerminal() {
         network, spin up a Beacon, and start buying or selling items.
       </div>
       <p className="section-instruction">
-        After you have downloaded the file, run these commands in {" "}
+        After you have downloaded the file, run these commands in{" "}
         {os === "mac" ? "Terminal" : "PowerShell"}.
         <br />
         <button
@@ -79,7 +132,6 @@ export function SkillTerminal() {
                 </div>
               );
             }
-            // cmd
             return (
               <div key={i} className="terminal-line visible">
                 <span className="prompt-symbol">$ </span>
@@ -89,6 +141,20 @@ export function SkillTerminal() {
           })}
         </div>
       </div>
+
+      <div className="agent-selector">
+        {agents.map(({ id, label }) => (
+          <button
+            key={id}
+            type="button"
+            className={`agent-btn${agent === id ? " agent-btn-active" : ""}`}
+            onClick={() => setAgent(id)}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+      {note && <p className="agent-note">{note}</p>}
     </div>
   );
 }
