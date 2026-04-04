@@ -3,13 +3,14 @@
 import { useState } from "react";
 
 type OS = "mac" | "windows";
-type Agent = "claude" | "cursor" | "windsurf" | "copilot";
+type Agent = "claude" | "cursor" | "windsurf" | "copilot" | "openclaw";
 
 const agents: { id: Agent; label: string }[] = [
   { id: "claude", label: "Claude Code" },
   { id: "cursor", label: "Cursor" },
   { id: "windsurf", label: "Windsurf" },
   { id: "copilot", label: "Copilot" },
+  { id: "openclaw", label: "OpenClaw" },
 ];
 
 function getCommands(agent: Agent, os: OS) {
@@ -48,6 +49,15 @@ function getCommands(agent: Agent, os: OS) {
       windows: [
         'New-Item -ItemType Directory -Path ".github\\instructions" -Force | Out-Null',
         'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" ".github\\instructions\\pelagora.instructions.md"',
+      ],
+    },
+    openclaw: {
+      mac: [
+        "mkdir -p ~/.openclaw/skills/pelagora && cp ~/Downloads/SKILL.md ~/.openclaw/skills/pelagora/SKILL.md",
+      ],
+      windows: [
+        'New-Item -ItemType Directory -Path "$env:USERPROFILE\\.openclaw\\skills\\pelagora" -Force | Out-Null',
+        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" "$env:USERPROFILE\\.openclaw\\skills\\pelagora\\SKILL.md"',
       ],
     },
   };
