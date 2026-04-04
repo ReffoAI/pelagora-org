@@ -171,8 +171,8 @@ export default function HomePage() {
               <h3>Grab the Skill</h3>
               <p>
                 Download{" "}
-                <TrackedLink href="/pelagora.md" download style={{ color: "var(--teal)", textDecoration: "none", fontWeight: 600 }} event="skill_downloaded" eventProps={{ source_page: "home" }}>
-                  <code>pelagora.md</code>
+                <TrackedLink href="/SKILL.md" download style={{ color: "var(--teal)", textDecoration: "none", fontWeight: 600 }} event="skill_downloaded" eventProps={{ source_page: "home" }}>
+                  <code>SKILL.md</code>
                 </TrackedLink>{" "}
                 and give it to your AI agent. It contains everything your agent needs to get you set up.
               </p>
