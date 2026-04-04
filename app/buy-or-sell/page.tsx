@@ -96,13 +96,13 @@ export default function RunANodePage() {
         <div className="container-narrow">
         <div className="section-label">The Path</div>
         <div className="section-title">List your item in minutes</div>
-        <div className="video-placeholder">
+        {/* <div className="video-placeholder">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="12" cy="12" r="10" />
             <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
           </svg>
           <span>Video coming soon</span>
-        </div>
+        </div> */}
           <div className="detail-header">
             <div className="detail-num ocean">1</div>
             <h2>Scaffold Your Beacon</h2>
@@ -120,7 +120,7 @@ export default function RunANodePage() {
               </div>
               <div className="terminal-body">
                 <div className="terminal-line"><span className="comment"># Scaffold a new Beacon project</span></div>
-                <div className="terminal-line"><span className="prompt">$ </span><span className="cmd">npx pelagora-cli-installer</span></div>
+                <div className="terminal-line"><span className="prompt-symbol">$ </span><span className="cmd">npx pelagora-cli-installer</span></div>
                 <div className="terminal-line">&nbsp;</div>
                 <div className="terminal-line"><span className="output">? Project directory: </span><span className="highlight">./my-beacon</span></div>
                 <div className="terminal-line"><span className="output">? HTTP port: </span><span className="highlight">3000</span></div>
@@ -129,16 +129,18 @@ export default function RunANodePage() {
                 <div className="terminal-line"><span className="success">✓</span><span className="output"> Project created at ~/my-beacon</span></div>
                 <div className="terminal-line"><span className="success">✓</span><span className="output"> Dependencies installed</span></div>
                 <div className="terminal-line"><span className="success">✓</span><span className="output"> .env configured</span></div>
+                <div className="terminal-line">&nbsp;</div>
+                <div className="terminal-line"><span className="success">✓</span><span className="output"> Pelagora node is ready!</span></div>
               </div>
             </div>
-            <p>The installer creates a complete project with:</p>
+            <p style={{ marginTop: 32 }}>The installer creates a complete project with:</p>
             <ul>
               <li><strong>package.json</strong> with <code>pelagora</code> as a dependency</li>
               <li><strong>.env</strong> with your port and optional Reffo API key (<a href="https://docs.pelagora.org/glossary/beacon/configuration" target="_blank" rel="noreferrer">see all config options</a>)</li>
               <li><strong>uploads/</strong> directory for item photos and media</li>
             </ul>
             <div className="callout">
-              <p><strong>Using the Pelagora Skill?</strong> Just tell your AI agent &quot;I want to run a node on Pelagora&quot; and it will run the installer for you, choosing sensible defaults.</p>
+              <p><strong>Using the Pelagora Skill?</strong> Just tell your AI agent &quot;Use the pelagora.md skill to help me create a beacon on the Pelagora network&quot; and it will run the installer for you, choosing sensible defaults.</p>
             </div>
           </div>
         </div>
@@ -163,14 +165,14 @@ export default function RunANodePage() {
                 <div className="terminal-title">terminal</div>
               </div>
               <div className="terminal-body">
-                <div className="terminal-line"><span className="prompt">$ </span><span className="cmd">cd my-beacon && npm start</span></div>
+                <div className="terminal-line"><span className="prompt-symbol">$ </span><span className="cmd">cd my-beacon && npm start</span></div>
                 <div className="terminal-line">&nbsp;</div>
                 <div className="terminal-line"><span className="success">✓</span><span className="output"> Beacon started on port <span className="highlight">3000</span></span></div>
                 <div className="terminal-line"><span className="success">✓</span><span className="output"> DHT connected — <span className="highlight">12 peers</span> discovered</span></div>
                 <div className="terminal-line"><span className="success">✓</span><span className="output"> Web UI available at <span className="highlight">http://localhost:3000</span></span></div>
               </div>
             </div>
-            <p>Once connected, you can:</p>
+            <p style={{ marginTop: 32 }}>Once connected, you can:</p>
             <ul>
               <li><strong>Browse the network</strong> through the built-in <a href="https://docs.pelagora.org/glossary/pelagora/web-ui" target="_blank" rel="noreferrer">Web UI</a> at <code>localhost:3000</code></li>
               <li><strong>Search for items</strong> listed by other Beacons on the mesh</li>
@@ -201,18 +203,7 @@ export default function RunANodePage() {
                 <div className="terminal-title">terminal</div>
               </div>
               <div className="terminal-body">
-                <div className="terminal-line"><span className="comment"># Create an item via the REST API</span></div>
-                <div className="terminal-line"><span className="prompt">$ </span><span className="cmd">curl -X POST localhost:3000/api/items \</span></div>
-                <div className="terminal-line"><span className="cmd">  -H &quot;Content-Type: application/json&quot; \</span></div>
-                <div className="terminal-line"><span className="cmd">  {`  -d '{"name": "`}<span className="highlight">Channel Islands Surfboard</span>{`",`}</span></div>
-                <div className="terminal-line"><span className="cmd">       {`"description": "6ft shortboard, great condition",`}</span></div>
-                <div className="terminal-line"><span className="cmd">       {`"category": "sporting-goods"}'`}</span></div>
-                <div className="terminal-line">&nbsp;</div>
-                <div className="terminal-line"><span className="comment"># Add a price offer</span></div>
-                <div className="terminal-line"><span className="prompt">$ </span><span className="cmd">curl -X POST localhost:3000/api/offers \</span></div>
-                <div className="terminal-line"><span className="cmd">  {`-d '{"refId": "`}<span className="highlight">item_8x7k2m</span>{`", "price": 450, "currency": "USD"}'`}</span></div>
-                <div className="terminal-line">&nbsp;</div>
-                <div className="terminal-line"><span className="success">✓</span><span className="output"> Item published to mesh (<span className="highlight">12 peers</span> notified)</span><span className="terminal-cursor" /></div>
+                <div className="terminal-line"><span className="prompt-symbol">&gt; </span><span className="cmd">/beacon-list-item I want to list a board game for sale on my beacon. I have a like-new copy of Balderdash. I&apos;d sell it for $10.</span></div>
               </div>
             </div>
             <p style={{ marginTop: 32 }}>That&apos;s it. Your item is now visible to anyone searching the Pelagora network. You can also do this through:</p>

@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
+  { href: "/ai-skill", label: "AI Skill" },
   { href: "/buy-or-sell", label: "Buy or Sell" },
   { href: "/build", label: "Build" },
   { href: "/contribute", label: "Contribute" },

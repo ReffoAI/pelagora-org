@@ -1,4 +1,5 @@
 import { TrackedLink } from "@/components/TrackedLink";
+import { SkillTerminal } from "@/components/SkillTerminal";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
 
@@ -66,34 +67,7 @@ export default function DevResourcesPage() {
       {/* SKILL PREVIEW */}
       <section className="skill-band" id="skill">
         <div className="container">
-          <div className="skill-band-header">
-            <div className="section-label">Hands-free development</div>
-            <div className="section-title">Already using AI?</div>
-            <div className="section-desc">
-              An AI Skill is simply a markdown file that teaches your AI agent how to do something. In this case, it's how to connect you to the Pelagora
-              network, spin up a Beacon, and start buying or selling items.
-            </div>
-          </div>
-          <div className="terminal">
-            <div className="terminal-bar">
-              <div className="terminal-dot red" />
-              <div className="terminal-dot yellow" />
-              <div className="terminal-dot green" />
-              <div className="terminal-title">pelagora.md</div>
-            </div>
-            <div className="terminal-body">
-              <div className="terminal-line"><span className="comment"># Drop pelagora.md into your project</span></div>
-              <div className="terminal-line"><span className="prompt">$ </span><span className="cmd">cp pelagora.md .claude/skills/</span></div>
-              <div className="terminal-line">&nbsp;</div>
-              <div className="terminal-line"><span className="comment"># Ask your AI agent</span></div>
-              <div className="terminal-line"><span className="prompt">&gt; </span><span className="cmd">&quot;I want to join the Pelagora network&quot;</span></div>
-              <div className="terminal-line">&nbsp;</div>
-              <div className="terminal-line"><span className="success">✓</span><span className="output"> Beacon scaffolded at ./my-beacon</span></div>
-              <div className="terminal-line"><span className="success">✓</span><span className="output"> Connected to Pelagora mesh — <span className="highlight">12 peers</span></span></div>
-              <div className="terminal-line"><span className="success">✓</span><span className="output"> MCP server ready</span></div>
-              <div className="terminal-line"><span className="success">✓</span><span className="output"> Web UI at <span className="highlight">http://localhost:3000</span></span><span className="terminal-cursor" /></div>
-            </div>
-          </div>
+          <SkillTerminal />
         </div>
       </section>
 
