@@ -21,7 +21,8 @@ function getCommands(agent: Agent, os: OS) {
       ],
       windows: [
         'New-Item -ItemType Directory -Path "$env:USERPROFILE\\.claude\\skills\\pelagora" -Force | Out-Null',
-        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" "$env:USERPROFILE\\.claude\\skills\\pelagora\\SKILL.md"',
+        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" "$env:USERPROFILE\\.claude\\skills\\pelagora\\SKILL.md" -Force',
+        'Write-Host "Skill installed successfully." -ForegroundColor Green',
       ],
     },
     cursor: {
@@ -30,7 +31,8 @@ function getCommands(agent: Agent, os: OS) {
       ],
       windows: [
         'New-Item -ItemType Directory -Path ".cursor\\rules\\pelagora" -Force | Out-Null',
-        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" ".cursor\\rules\\pelagora\\SKILL.md"',
+        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" ".cursor\\rules\\pelagora\\SKILL.md" -Force',
+        'Write-Host "Skill installed successfully." -ForegroundColor Green',
       ],
     },
     windsurf: {
@@ -39,7 +41,8 @@ function getCommands(agent: Agent, os: OS) {
       ],
       windows: [
         'New-Item -ItemType Directory -Path ".windsurf\\rules\\pelagora" -Force | Out-Null',
-        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" ".windsurf\\rules\\pelagora\\SKILL.md"',
+        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" ".windsurf\\rules\\pelagora\\SKILL.md" -Force',
+        'Write-Host "Skill installed successfully." -ForegroundColor Green',
       ],
     },
     copilot: {
@@ -48,7 +51,8 @@ function getCommands(agent: Agent, os: OS) {
       ],
       windows: [
         'New-Item -ItemType Directory -Path ".github\\instructions" -Force | Out-Null',
-        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" ".github\\instructions\\pelagora.instructions.md"',
+        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" ".github\\instructions\\pelagora.instructions.md" -Force',
+        'Write-Host "Skill installed successfully." -ForegroundColor Green',
       ],
     },
     openclaw: {
@@ -57,7 +61,8 @@ function getCommands(agent: Agent, os: OS) {
       ],
       windows: [
         'New-Item -ItemType Directory -Path "$env:USERPROFILE\\.openclaw\\skills\\pelagora" -Force | Out-Null',
-        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" "$env:USERPROFILE\\.openclaw\\skills\\pelagora\\SKILL.md"',
+        'Copy-Item "$env:USERPROFILE\\Downloads\\SKILL.md" "$env:USERPROFILE\\.openclaw\\skills\\pelagora\\SKILL.md" -Force',
+        'Write-Host "Skill installed successfully." -ForegroundColor Green',
       ],
     },
   };
