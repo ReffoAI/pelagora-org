@@ -1,4 +1,5 @@
 import { TrackedLink } from "@/components/TrackedLink";
+import { VideoThumb } from "@/components/VideoModal";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
 
@@ -47,24 +48,7 @@ export default function HomePage() {
             marketplace. Grab the Skill, hand it to your AI, and start building.
           </p>
           <div className="hero-actions">
-            <a
-              href="https://youtu.be/7uJosA-RnHM"
-              target="_blank"
-              rel="noreferrer"
-              className="hero-video-thumb"
-              aria-label="Watch the Pelagora demo video"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://img.youtube.com/vi/7uJosA-RnHM/mqdefault.jpg"
-                alt="Pelagora demo"
-              />
-              <span className="hero-video-play">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <polygon points="8 5 19 12 8 19 8 5" />
-                </svg>
-              </span>
-            </a>
+            <VideoThumb videoId="TIu7OE4nmy4" />
             <TrackedLink href="/ai-skill" className="btn btn-primary" event="hero_cta_clicked" eventProps={{ page: "home", cta_label: "Start Building", destination: "/ai-skill" }}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
