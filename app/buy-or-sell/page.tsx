@@ -96,13 +96,17 @@ export default function RunANodePage() {
         <div className="container-narrow">
         <div className="section-label">The Path</div>
         <div className="section-title">List your item in minutes</div>
-        {/* <div className="video-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="10" />
-            <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
-          </svg>
-          <span>Video coming soon</span>
-        </div> */}
+        <div className="video-embed" style={{ width: '100%', aspectRatio: '16 / 9', margin: '32px 0', borderRadius: '12px', overflow: 'hidden' }}>
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/7uJosA-RnHM"
+            title="Pelagora Demo"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
           <div className="detail-header">
             <div className="detail-num ocean">1</div>
             <h2>Scaffold Your Beacon</h2>
