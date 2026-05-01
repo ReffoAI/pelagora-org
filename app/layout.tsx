@@ -4,6 +4,7 @@ import Image from "next/image";
 import NavLinks from "./NavLinks";
 import { Analytics } from "@vercel/analytics/react";
 import { TrackedLink } from "@/components/TrackedLink";
+import FooterEmailCapture from "@/components/FooterEmailCapture";
 import type { ReactNode } from "react";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pelagora.org";
@@ -88,7 +89,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <Image src="/images/pelagora-logo_reverse_sm.png" alt="Pelagora" width={24} height={24} style={{ height: 24, width: "auto" }} />
               <span>Pelagora</span>
             </div>
-            <p>Open source commerce for builders. &copy; 2026</p>
+            <p style={{ marginBottom: 6 }}>Get updates as we ship new features.</p>
+            <FooterEmailCapture />
+            <p style={{ marginTop: 28 }}>Open source commerce for builders. &copy; 2026</p>
             <p>Questions? Find us on <TrackedLink href="https://discord.gg/CfBVrPAC" target="_blank" rel="noreferrer" event="discord_clicked" eventProps={{ source_page: "footer" }}>Discord</TrackedLink>, or reach out at <a href="mailto:hello@reffo.ai">hello@reffo.ai</a>.</p>
           </div>
         </footer>
