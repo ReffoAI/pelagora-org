@@ -207,7 +207,7 @@ export default function RunANodePage() {
                 <div className="terminal-title">terminal</div>
               </div>
               <div className="terminal-body">
-                <div className="terminal-line"><span className="prompt-symbol">&gt; </span><span className="cmd">/pelagora I want to list a board game for sale on my beacon. I have a like-new copy of Balderdash. I&apos;d sell it for $10.</span></div>
+                <div className="terminal-line"><span className="prompt-symbol">&gt; </span><span className="cmd">/beacon-list-item I have a like-new copy of Balderdash, the board game. I&apos;d sell it for $10.</span></div>
                 <div className="terminal-line"><span className="output">──────────</span></div>
                 <div className="terminal-line"><span className="prompt-symbol">$ </span><span className="cmd">{'curl -s -X POST http://localhost:8888/refs \\'}</span></div>
                 <div className="terminal-line"><span className="cmd">{'    -H "Content-Type: application/json" \\'}</span></div>

@@ -23,11 +23,11 @@ A Beacon is a lightweight server you run locally. It connects to the Pelagora me
 ## Prerequisites
 
 - Node.js 18+ (check with \`node -v\`)
-- The [Pelagora Skill](https://pelagora.org/dev-resources/pelagora.md) (a markdown file you hand to your AI agent)
+- The [Pelagora Skill](https://pelagora.org/SKILL.md) (a markdown file you hand to your AI agent)
 
 ## Step 1 — Hand the Skill to your agent
 
-Download \`pelagora.md\` and drop it into your Claude or ChatGPT conversation:
+Download \`SKILL.md\` and drop it into your Claude or ChatGPT conversation:
 
 \`\`\`
 You are a Pelagora setup agent. Follow the instructions in the attached skill file.
@@ -135,7 +135,7 @@ Your IP address is visible to peers you connect with — the same trade-off as a
 
 Skills are Markdown files. That's it. They contain structured instructions that an AI agent can read and execute to extend a Beacon's capabilities.
 
-The canonical example is [\`pelagora.md\`](/pelagora.md) — the bootstrap Skill that installs and configures a Beacon from scratch. But Skills can do anything: add auction logic, manage rental calendars, run group buys, handle escrow.
+The canonical example is [\`SKILL.md\`](/SKILL.md) — the bootstrap Skill that installs and configures a Beacon from scratch. But Skills can do anything: add auction logic, manage rental calendars, run group buys, handle escrow.
 
 ## Who writes Skills?
 
@@ -223,7 +223,7 @@ curl https://skills.pelagora.org/reverse-auction.md > reverse-auction.md
     published_at: new Date(Date.now() - 1000 * 60 * 60 * 24 * 35).toISOString(),
     content: `## Release summary
 
-Pelagora 0.9 ships a major upgrade to the mesh routing layer, expands Schema.org support, and introduces the new \`pelagora.md\` v2 Skill format. Here's what changed.
+Pelagora 0.9 ships a major upgrade to the mesh routing layer, expands Schema.org support, and introduces the new \`SKILL.md\` v2 Skill format. Here's what changed.
 
 ## Mesh routing — faster peer discovery
 
@@ -261,7 +261,7 @@ AI agents browsing the mesh can now filter by brand, condition, and product cate
 
 ## Skill format v2
 
-The new \`pelagora.md\` v2 format adds a machine-readable frontmatter block:
+The new \`SKILL.md\` v2 format adds a machine-readable frontmatter block:
 
 \`\`\`yaml
 ---
@@ -281,7 +281,7 @@ This lets agents validate compatibility before executing — no more mid-install
 npx create-reffo-beacon@latest update
 \`\`\`
 
-Or grab the new [pelagora.md](https://pelagora.org/dev-resources/pelagora.md) and hand it to your agent — it will detect the existing installation and upgrade in place.
+Or grab the new [SKILL.md](https://pelagora.org/SKILL.md) and hand it to your agent — it will detect the existing installation and upgrade in place.
 
 ## What's next
 
